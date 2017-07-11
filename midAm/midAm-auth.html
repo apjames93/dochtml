@@ -1,0 +1,343 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div style="margin-left: 1em; margin-right: 1em;">
+      <div layout="row" layout-align="start center" style="text-align: center;">
+        <img src="https://www.midamericanenergy.com/Content/images/svg/MidAmerican-Energy.svg" style="padding-left: 10px;" width="200px" height="150px" alt="Woodriver">
+      </div>
+
+      <div layout="row" layout-align="center center" style="text-align: center;
+  font-size: 15px;">
+        <b>MIDAMERICAN ENERGY COMPANY</b>
+      </div>
+      <div layout="row" layout-align="center center" style="text-align: center;
+  font-size: 15px; margin-bottom: 10px;">
+        AUTHORIZATION AND RELEASE AGREEMENT
+      </div>
+      <div style="border: 1px solid; border-top: 5px solid;">
+
+        <div layout="row" layout-align="center center" style="text-align:
+                                                  justify; margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+            The undersigned Customer hereby designates <u>WoodRiver Energy LLC</u> (“Agent”) as Customer’s agent for the purposes of the Gas Transportation Contract or Agreement (“Contract”) entered into with the local distribution company, MidAmerican
+            Energy Company (“LDC”). Customer authorizes LDC to accept from Agent nominations and to take other actions regarding Customer’s accounts, made by Agent on behalf of Customer for the purposes of the Contract. Customer further authorizes LDC
+            for the purposes of the Contract to provide to Agent usage information, copies of billings, real-time information and such other information relating to the Contract as Agent may request and LDC deems necessary for performance of the Contract.
+          </p>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align:
+                                                          justify;margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+            This Authorization and Release shall not relieve Customer of any obligation under the Contract, including but not limited to, the obligation to pay any penalty assessed pursuant to the Contract or any applicable rate schedule of LDC. Customer hereby releases
+            and agrees to protect, defend, indemnify and hold harmless LDC from any and all liability, claims and actions arising from LDC’s good faith acceptance of nominations or other instructions from Agent and good faith provision to Agent of usage
+            information, copies of billings and other information relating to the Contract.
+          </p>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align:
+                                                                  justify; margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+            This Authorization and Release shall remain in effect until Customer delivers written notice of termination to LDC at least ten (10) days prior to the effective date of termination unless waived by LDC. Notice of termination shall be given in accordance
+            with the provisions of the Contract relating to notices.
+          </p>
+        </div>
+
+        <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+          <p style="margin:0px; ">
+            CUSTOMER INFORMATION
+          </p>
+        </div>
+
+        <div layout="row" style="padding: 5px;
+  border-bottom: 1px solid">
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Company:</b> {{values.customer.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Name:</b> {{values.contact.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Signature:</b> {{values.signature.signature}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>Title:</b> {{values.contact.title}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>Phone:</b> {{values.contact.workPhone}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>date:</b> {{values.signature.date | date}}
+              </div>
+            </div>
+          </div>
+          <br>
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Service Address:</b> {{values.address.address1}} {{values.address.address2}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>City, State, Zip:</b> {{values.addresses.address1}}, {{values.addresses.address2}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Account Number:</b> {{values.accountNum}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Meter Number:</b> {{values.meterNum}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>Transport Start Date:</b> {{}}
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div layout="row">
+          <div flex style="padding: 5px;">
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Check this box if Customer has additional service addresses covered under this agreement and listed on Appendix A.</small>
+            </md-checkbox>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+          <p style="margin:0px; ">
+            CUSTOMER BILLING OPTIONS </p>
+        </div>
+        <div layout="row">
+          <div flex style="padding: 5px;">
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Check this box if Customer elects <b><u> not</u></b> to have its transportation bill sent to its Agent </small>
+            </md-checkbox>
+          </div>
+        </div>
+        <div layout="row">
+          <div flex style="padding: 5px;">
+            <md-checkbox ng-disabled="true" ng-checked="true" aria-label="Disabled checked checkbox">
+              <small>Check this box and enter billing information if Customer elects to have its transportation bill sent to their Agent. </small>
+            </md-checkbox>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="padding: 5px; border-bottom: 1px solid">
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; padding: 5px;">
+                <b>Name:</b> <u>WoodRiver Energy LLC</u>
+              </div>
+              <div style="width:90%; padding: 5px;">
+                <b>Address:</b> <u>3300 E. 1st Ave., Ste 600</u>
+              </div>
+              <div style="width:90%; padding: 5px;">
+                <b>City, State and Zip:</b> <u>Denver, CO 80206-5809</u>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+          <p style="margin:0px; ">
+            AGREEMENT REPLACEMENT OPTION
+          </p>
+        </div>
+        <div layout="row">
+          <div flex style="padding: 5px;">
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Check this box if agreement replaces all previous Authorization and Release agreements that Customer may have with other Agents.
+Previous agreements will be deemed terminated on the effective date of this agreement.  </small>
+            </md-checkbox>
+          </div>
+        </div>
+        <div layout="row" layout-align="start center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+          <p style="margin:0px; ">
+            <b>MIDAMERICAN ENERGY</b> (Local distribution company personnel only)
+          </p>
+        </div>
+        <div layout="row" style="padding: 5px;
+  border-bottom: 1px solid">
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Name:</b> {{values.contact.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Signature:</b> {{values.signature.signature}}
+              </div>
+            </div>
+          </div>
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>Title:</b> {{values.contact.title}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>date:</b> {{values.signature.date | date}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br><br>
+      <div layout="row" layout-align="start center" style="text-align: center;">
+        <img src="https://www.midamericanenergy.com/Content/images/svg/MidAmerican-Energy.svg" style="padding-left: 10px;" width="200px" height="150px" alt="Woodriver">
+      </div>
+      <div style="border: 1px solid;">
+        <div layout="row" layout-align="center center" style="text-align: center;
+        font-size: 15px;">
+          <b>MIDAMERICAN ENERGY COMPANY</b>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align: center;
+        font-size: 15px; margin-bottom: 10px;">
+          AUTHORIZATION AND RELEASE AGREEMENT
+        </div>
+      </div>
+      <div style="border: 1px solid; border-top: 5px solid;">
+        <div layout="row" layout-align="start center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid;">
+          <p style="margin-top:5px; ">
+            ADDITIONAL SERVICE ADDRESSES:
+          </p>
+        </div>
+        <div layout="row" style="background-color:#D3D3D3;">
+          <div layout="row" style="margin:0px; border-top: 1px solid; border-bottom: 1px solid; width:100%;">
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              ACCOUNT NUMBER
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              METER NUMBER
+            </div>
+            <div flex="40" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              SERVICE ADDRESS
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              CITY
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              STATE
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              ZIP
+            </div>
+          </div>
+        </div>
+
+        <div layout="row" ng-repeat="value in values.serviceAccountMeter">
+          <div layout="row" style="margin:0px; border-top: 1px solid; border-bottom: 1px solid; width:100%;">
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.account_number}}
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.meter_number}}
+            </div>
+            <div flex="40" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.service_address}}
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.city}}
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.state}}
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.zip}}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script type="text/javascript">
+      angular.module('app', ['ngMaterial'])
+        .controller('primary', function($scope, $window) {
+          $scope.today = new Date();
+          $scope.values = document.values;
+
+          $scope.values = {
+            "customer": {
+              "name": "Something cool INC"
+            },
+            "contact": {
+              "name": "Alex James",
+              "email": "apjames93@gmail.com",
+              "workPhone": "3037209905"
+            },
+            "serviceAccountMeter": [{
+                service_address: "260 lol at you ln",
+                city: 'something',
+                state: 'co',
+                zip: 80808,
+                account_number: 90909090,
+                meter_number: 3030303,
+              },
+              {
+                service_address: "260 lol at you ln",
+                city: 'something',
+                state: 'co',
+                zip: 80808,
+                account_number: 90909090,
+                meter_number: 3030303,
+              },
+              {
+                service_address: "260 lol at you ln",
+                city: 'something',
+                state: 'co',
+                zip: 80808,
+                account_number: 90909090,
+                meter_number: 3030303,
+              },
+            ],
+            "addresses": {
+              "address1": "3030 Deltron ave",
+              "address2": "",
+              "city": "Denver",
+              "state": "CO",
+              "zip": 83030
+            },
+            "pipelines": {
+              "name": "TIG"
+            },
+            "signature": {
+              "date": "2017-03-23T05:00:00.000Z",
+              "signature": "Marvin F Fritz",
+              "personAbove": "I certify I am the person above",
+              "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+              "ipAddress": "97.121.82.81"
+            }
+          }
+
+          if ($scope.values.serviceAccountMeter.length != 28) {
+            while ($scope.values.serviceAccountMeter.length != 28) {
+              $scope.values.serviceAccountMeter.push({
+                service_address: "",
+                city: '',
+                state: '',
+                zip: '',
+                account_number: '',
+                meter_number: '',
+              })
+            }
+          }
+
+          $window.requestAnimationFrame(function() {
+            $scope.$apply(function() {
+              if (window.callPhantom) {
+                window.callPhantom();
+              }
+            });
+          });
+
+        });
+    </script>
+
+</body>

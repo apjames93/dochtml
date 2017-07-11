@@ -1,0 +1,406 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div layout="row">
+      <div flex="50" style="width: 100%">
+      </div>
+      <div flex="50" style="width: 100%">
+        <img src="http://freevectorlogo.net/wp-content/uploads/2013/06/xcel-energy-vector-logo-400x400.png" width="250px" height="170px" alt="xcel Energy img" align="right">
+      </div>
+    </div>
+
+    <div>
+      <div layout="row">
+        <div layout="row" flex='50' style="margin-left: 1em;">
+          CUSTOMER CONSENT FORM
+        </div>
+        <div layout="row" layout-align='end center' flex='50' style="margin-right: 1em;">
+          CEUD
+        </div>
+      </div>
+      <hr style="border-top: dotted 1px;" />
+      <div layout="row">
+        <div layout="row" flex='50' style="margin-left: 1em;">
+          PAGE 1
+        </div>
+        <div layout="row" layout-align='end center' flex='50' style="margin-right: 1em;">
+          CO | MI | MN | ND | NM | SD | TX | WI
+        </div>
+      </div>
+    </div>
+
+    <div layout="row">
+      <p>
+        <b>Consent form instructions for the entity requesting Customer
+        Energy Usage Data:</b> The requesting entity must use this form to obtain authorization from any Xcel Energy customer for the release of that Customer’s Energy Usage Data to the entity. The requesting entity must populate the form by providing
+        all of the information specified in the instructions and appropriately marking all applicable checkboxes.The entity must provide the completed form for signature to the Xcel Energy customer whose information the entity is seeking to obtain.
+      </p>
+    </div>
+    <div layout="row">
+      <b>The entity requesting Customer Energy Usage Data must provide the following
+      information on the form prior to providing the form to the customer for
+      signature (refer to the corresponding fields within the form): </b>
+    </div>
+    <div layout="row">
+      <ol>
+        <li style="color: red;">
+          <span style="color: black;">
+        Specify requesting entitys details, including the name of the person
+        the customer may contact with questions.
+      </span>
+        </li>
+        <li style="color: red;">
+          <span style="color: black;">
+        Describe the purpose(s) of the proposed use of Customer Energy Usage
+        Data. The description must be detailed and sufficiently clear to inform
+        the customer and Xcel Energy of the purposes for which the data will
+        be used.
+      </span>
+        </li>
+        <li style="color: red;">
+          <span style="color: black;">
+          Identify details about the information you are requesting by populating
+          the type of service, the interval and time period for measuring Customer
+          Energy Usage Data, and any other unique data element not otherwise
+          listed on the consent form.
+        </span>
+        </li>
+        <li style="color: red;">
+          <span style="color: black;">
+        Specify the date or event of consent termination, if the consent period
+        is different from three (3) years.
+      </span>
+        </li>
+        <li style="color: red;">
+          <span style="color: black;">
+        Provide the full service address (including city and state) in order to
+        process a release request.
+      </span>
+        </li>
+      </ol>
+    </div>
+    <div layout="row">
+      <b>
+      If any of this information is not provided, or the form is otherwise
+       incomplete, it will not be acceptedby Xcel Energy.
+    </b>
+    </div>
+    <br>
+    <div layout="row">
+      <div layout="row">
+        <span style="color: red; margin-right: 5px;"> (1) </span><b> REQUESTOR INFORMATION:</b>
+      </div>
+    </div>
+    <br>
+    <div layout="row">
+      <div style="width: 90%; border-bottom: 1px solid black; padding: 5px;">
+        <b>Requesting entity name:</b> WoodRiver Energy, LLC
+      </div>
+    </div>
+    <div layout="row">
+      <div style="width: 90%; border-bottom: 1px solid black; padding: 5px;">
+        <b>Contact person:</b> {{values.dealmaker.name}}
+      </div>
+    </div>
+    <div layout="row">
+      <div style="width: 90%; border-bottom: 1px solid black; padding: 5px;">
+        <b>Physical & mailing address:</b> 3300 E 1st Ave, Ste 600, Denver, CO, 80206
+      </div>
+    </div>
+
+    <div layout="row">
+      <div flex="50" style="border-bottom: 1px solid black; padding: 5px; width: 100%">
+        <div>
+          <b>Phone:</b> {{values.dealmaker.phone}}
+        </div>
+      </div>
+      <div flex="40" style="border-bottom: 1px solid black; padding: 5px; width: 100%">
+        <div>
+          <b>Fax:</b>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row">
+      <div style="width: 90%; border-bottom: 1px solid black; padding: 5px;">
+        <b>Email:</b> {{values.dealmaker.email}}
+      </div>
+    </div>
+    <div layout="row" layout-align='center center'>
+      <h1 style="font-weight: normal;">
+        CONSENT TO RELEASE CUSTOMER ENERGY USAGE DATA
+      </h1>
+    </div>
+
+    <div layout="row">
+      <div layout="row">
+        <span style="color: red; margin-right: 5px;"> (2) </span> We - the entity identified above - have asked you to authorize Xcel Energy to disclose your Customer Energy Usage Data to us so that we may:
+      </div>
+    </div>
+    <br>
+
+    <div layout="row">
+      <div flex-gt-sm="50">
+        <md-checkbox aria-label="Checkbox 1">
+          Provide you with products or services you requested
+        </md-checkbox>
+      </div>
+      <div flex-gt-sm="50">
+        <md-checkbox aria-label="Checkbox 1">
+          Offer you products/services that may interest you
+        </md-checkbox>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex-gt-sm="50">
+        <md-checkbox aria-label="Checkbox 1" class="black">
+          Determine your eligibility for an energy program
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="50">
+        <md-checkbox ng-disabled="true" ng-checked="true" aria-label="Disabled checked checkbox">
+          Analyze your data
+        </md-checkbox>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex-gt-sm="90" style="width: 90%; border-bottom: 1px solid black;">
+        <md-checkbox aria-label="Checkbox 1">
+          Other (specify):
+        </md-checkbox>
+      </div>
+    </div>
+    <br>
+    <div layout="row">
+      <br>
+      <div style="width: 90%; border-bottom: 1px solid black; padding: 5px;"></div>
+    </div>
+    <br>
+
+    <div layout="row">
+      <div layout="row">
+        <span style="color: red; margin-right: 5px;"> (3) </span>
+        <b>INFORMATION WE ARE REQUESTING </b>
+        <br>
+      </div>
+    </div>
+    <br>
+    <div layout="row">
+      We are requesting access to your Customer Energy Usage Data, which is specific information that Xcel Energy collects from your utility meter (check all service types that apply):
+    </div>
+    <br>
+    <div layout="row">
+      <div flex-xs flex="10" style="margin-right: .5em;">
+        <md-checkbox>
+          Electric
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="10" style="margin-right: .5em;">
+        <md-checkbox ng-disabled="true" ng-checked="true">
+          Natural Gas
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="10" style="margin-right: .5em;">
+        <md-checkbox>
+          Steam
+        </md-checkbox>
+      </div>
+    </div>
+
+    <div layout="row">
+      <p>
+        Xcel Energys standard report of Customer Energy Usage Data contains monthly usage information. Depending on the type of utility meter installed at your premise, Xcel Energy might be able to provide more granular (daily) Customer Energy Usage Data, and/or
+        information about total energy use in each billing period, average energy use per day, and measured and billed demand.
+      </p>
+    </div>
+    <div layout="row">
+      <p>
+        Interval of Customer Energy Usage Data requested:
+      </p>
+    </div>
+    <div layout="row">
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <md-checkbox ng-disabled="true" ng-checked="true">
+          Monthly readings (Xcel Energys standard report)
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <md-checkbox>
+          Daily readings (if available)
+        </md-checkbox>
+      </div>
+    </div>
+    <br><br><br><br>
+    <div layout="row">
+      <p>
+        Range of historical Customer Energy Usage Data requested:
+      </p>
+    </div>
+    <div layout="row">
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <md-checkbox>
+          one month <u style="text-decoration: underline;">_______________</u>
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <md-checkbox aria-label="checked checkbox">
+          Most recent 12 month
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <md-checkbox ng-disabled="true" ng-checked="true">
+          Most recent 24 months
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <md-checkbox aria-label="Disabled checked checkbox">
+          Most recent 36 months
+        </md-checkbox>
+      </div>
+    </div>
+    <div layout="row">
+      <div flex-xs flex="90" style="margin-right: .5em;">
+        <md-checkbox>
+          If desired: ongoing future releases of monthly Customer Energy Usage Data through <u style="text-decoration: underline;">
+         ___________________________________________________________</u>
+        </md-checkbox>
+      </div>
+    </div>
+    <div layout="row">
+      <p>
+        In addition to the Customer Energy Usage Data described above, the report we receive from Xcel Energy will also include your: name; account number; service number; meter number; utility type; service address; premise number; premise description; meter
+        read date(s); number of days in the billing period; utility invoice date; base rate bill amount; other charges including base rate and non-base rate adjustments; taxes; and invoice total amount.
+      </p>
+    </div>
+    <div layout="row">
+      <p>
+        <b>Exclusion:</b> Xcel Energy will not provide us with your Social Security Number or any financial account number.
+      </p>
+    </div>
+    <div layout="row">
+      <b>CUSTOMERS CONSENT </b>
+      <br>
+    </div>
+    <div layout="row">
+      <p>
+        Your information is treated as private by Xcel Energy. You are not required to authorize the disclosure of your information, and your decision not to authorize the disclosure will not affect your utility services. Note that Xcel Energy will have no control
+        over the information disclosed pursuant to this consent, and will not be responsible for monitoring or taking any steps to ensure that the information recipient maintains the confidentiality of the information or uses it as authorized by you.
+      </p>
+    </div>
+    <div layout="row">
+      <p>
+        By signing this form you acknowledge and agree that you are the customer of record for this account and that you authorize Xcel Energy to disclose your information as specified in this form. This consent is valid for three years or through
+        <span style="color: red;"> (4) </span>
+        <u style="text-decoration: underline;"> {{values.termDate | date}} </u>, or until you terminate your service or withdraw consent by sending a written request with your name and service address to Xcel Energy at P.O Box 8 Eau Claire WI 54702 or
+        datarequest@xcelenergy.com. You may terminate this consent at any time.
+      </p>
+    </div>
+    <div layout="row">
+      <div style="width: 98%; border-bottom: 1px solid black;">
+        <span style="color: red; margin-right: 5px;"> (5) </span>
+        <b>CUSTOMER ACCOUNT NUMBER(S)</b> {{values.deal_details.account_number}}
+      </div>
+    </div>
+    <br>
+    <div layout="row">
+      <div style="width: 98%; border-bottom: 1px solid black;">
+        <b>FULL SERVICE ADDRESS:</b> {{values.addresses.address1}} {{values.addresses.address2}}, {{values.addresses.city}}, {{values.addresses.state}}, {{values.addresses.zip}}
+      </div>
+    </div>
+    <br>
+    <div layout="row">
+      <div style="width: 98%; border-bottom: 1px solid black;">
+        <b>SIGNATURE OF CUSTOMER OF RECORD:</b> {{values.signature.signature}}
+      </div>
+      <br>
+    </div>
+    <br>
+    <div layout="row">
+      <div flex-xs flex="75">
+        <div style="width: 98%; border-bottom: 1px solid black;">
+          <b>PRINTED:</b> {{values.signature.signature}}
+        </div>
+        <br>
+      </div>
+      <div flex-xs flex="25" style="margin-right: .5em;">
+        <div style="width: 100%; border-bottom: 1px solid black;">
+          <b>DATE SIGNED:</b> {{values.signature.date | date}}
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="center center" style="text-align: center;">
+      <img src="http://freevectorlogo.net/wp-content/uploads/2013/06/xcel-energy-vector-logo-400x400.png" width="250px" height="170px" alt="xcel Energy img" align="center">
+    </div>
+
+    <div layout="row" layout-align="center center" style="text-align: center; margin-bottom: 2em;">
+      <small>xcelenergy.com | © 2014 Xcel Energy Inc. | Xcel Energy is a
+                registered trademark of Xcel Energy Inc. | Northern States Power
+                Company-Minnesota, Northern States Power Company-Wisconsin and
+                Southwestern Public Service Company, Xcel Energy Companies. |
+                14-03-431</small>
+    </div>
+
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.today = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
+        $scope.values = document.values;
+        $scope.values = {
+          "dealmaker": {
+            "name": "Brian Howlett",
+            "phone": "303-597-8778",
+            "email": 'brian.howlett@woodriverenergy.com'
+          },
+          "customer": {
+            "name": "Alex James",
+            "email_address": "apjames93@gmail.com",
+            "work_phone": "3037209905"
+          },
+          "addresses": {
+            "address1": "3030 Deltron ave",
+            "address2": "",
+            "city": "Denver",
+            "state": "CO",
+            "zip": 83030
+          },
+          "pipelines": {
+            "name": "TIG"
+          },
+          "deal_details": {
+            "account_number": "9090909090"
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>

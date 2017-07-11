@@ -1,0 +1,270 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div layout="row" layout-align="center center" style="margin-top:0px;">
+      <p>
+        <h3 style="margin-bottom:0px;">Exhibit A - NEBRASKA</h3>
+      </p>
+    </div>
+
+    <div layout="row" layout-align="center center" style="margin-top:0px;">
+      <p>
+        <b>End User/Customer Transport Authorization Form </b>
+      </p>
+    </div>
+
+    <div layout="row" layout-align="center center" style="margin-top:0px;">
+      <p>
+        The undersigned End User/Customer hereby notifies Black Hills/Nebraska Gas Utility Company, LLC d/b/a Black Hills Energy (Company) that the marketer named below is authorized as agent to receive information for each of the account numbers listed. End
+        user authorize marketer to execute any additional agreements with Company as required in accordance with the Companys current transportation requirements or tariff to facilitate delivery of gas to End User’s facility. End User acknowledges that
+        transportations services is subject to Companys General Rules and Regulations and Companys Transportation Services Terms and Conditions. End User shall remain primarily and ultimately responsible to Company for the charges applicable to transportation
+        service regardless of whether End User designates a third party as End User’s Pay Agent for receiving and paying the invoices. Company will adhere to this End User marketer selection until another End User marketer selection is submitted to Company
+        or End User request to go back to the rales rate
+      </p>
+    </div>
+
+    <div layout="row" layout-wrap style="margin-top:0px; border: 1px solid black;">
+      <div flex="100" style="text-align: center; background-color: LightGray; border-bottom: 1px solid black">
+        <b>Customer Information</b>
+      </div>
+      <div flex="100">
+        <div layout="row">
+          <div style="width: 50%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Legal Name:</b> {{values.customer.name}}
+          </div>
+          <div style="width: 50%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Contact Name:</b> {{values.contact.name}}
+          </div>
+        </div>
+        <div layout="row">
+          <div style="width: 100%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Mailing Address:</b> {{values.addresses.address1}}, {{values.addresses.city}}, {{values.addresses.state}}, {{values.addresses.zip}}
+          </div>
+        </div>
+        <div layout="row">
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Phone Number:</b> {{values.contact.workPhone}}
+          </div>
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Fax Number:</b>
+          </div>
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>email:</b> {{values.contact.email}}
+          </div>
+        </div>
+
+        <div layout="row" style="padding: 5px;
+                  margin-left: 1em;
+                  margin-right: 1em;
+                  margin-bottom: .1em">
+
+          <div flex="100">
+            <div style="">
+              Account Number / Service Address
+            </div>
+            <div ng-repeat="account in values.accountAddresses" flex="100">
+              <div flex="45">
+                <u style="text-decoration: underline;">{{account.account_number}}/ {{account.service_address}} </u>
+              </div>
+            </div>
+          </div>
+          <br>
+        </div>
+        <br>
+      </div>
+    </div>
+    <div layout="row" layout-wrap style="margin-top:0px; border: 1px solid black; padding: 5px;">
+      <span style="color: red">
+       DUE TO PRIVACY REQUIREMENTS, SEPARATE CUSTOMER CONSENT SIGNATURE REQUIRED:
+     </span> <u style="text-decoration: underline;">________________ </u> date:
+      <u style="text-decoration: underline;">_________________</u>
+      <br>
+      <div flex-xs flex="100" style="margin-right: .5em;">
+        <md-checkbox ng-disabled="true" style="margin: 0px;">
+          <b> <span style="color: LightSlateGrey ">Consumption History </span> - $10.00 charged to Marketer per Account per year.</b>
+        </md-checkbox>
+      </div>
+    </div>
+    <div layout="row" layout-wrap style="margin-top:0px; border: 1px solid black; padding: 5px">
+      End User authorizes Marketer to perform the items checked below for the accounts referenced above.
+      <div flex-xs flex="100" style="margin-right: .5em;">
+        <md-checkbox ng-disabled="true" ng-checked="true" style="margin: 0px;">
+          <b> <span style="color: LightSlateGrey ">Transportation Service </span> - Marketer will supply End Users Gas Cost and bill directly to End User(Firm or interruptible status is unchanged).</b>
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="100" style="margin-right: .5em;">
+        <md-checkbox style="margin: 0px;">
+          I am a new transportation customer with no existing contract for services
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="100" style="margin-right: .5em;">
+        <md-checkbox style="margin: 0px;">
+          I am a current transportation customer and I understand that it is my responsibility to contact my current Marketer that i am requesting to cnacle my contract with them. Effective {{}}. I am requesting to move {{}} (Marketer)
+        </md-checkbox>
+      </div>
+      <div layout="row" flex="100">
+        <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+          <b>signature:</b> {{values.signature.signature}}
+        </div>
+        <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Printed Name:</b> {{values.contact.name}}
+        </div>
+        <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Date:</b> {{values.signature.date | date}}
+        </div>
+      </div>
+      <br>
+    </div>
+    <div layout="row" layout-wrap style="margin-top:0px; border: 1px solid black; padding: 5px">
+      <div flex="100" style="text-align: center;">
+        <h4>Company Invoice Options for Transportation Service(*must choose one)</h4>
+      </div>
+      <div class="" style="padding: 15px;" flex="100">
+        <div flex-xs flex="100" style="margin-right: .5em;">
+          <md-checkbox style="margin: 0px;" ng-checked="true" ng-disabled="true">
+            <b>*End User Acts as Pay Agent </b>- End User will receive their Invoice(s) and submit payment to Company
+          </md-checkbox>
+        </div>
+
+        <div flex-xs flex="100" style="margin-right: .5em; margin-top: .5em;">
+          <md-checkbox style="margin: 0px;">
+            <b>*Marketer Acts as Pay Agent </b>- Marketer will receive their Invoice(s) and submit payment to Company
+          </md-checkbox>
+          <div style="padding-left: 30px;">
+            <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
+              <b>Marketer Name: </b> {{}}
+            </div>
+            <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
+              <b>Marketer Billing Address: </b> {{}}
+            </div>
+            <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
+              <b>Marketer Authorized Signature: </b> {{}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="" style="padding: 15px;" flex="100">
+        <div flex-xs flex="100" style="margin-right: .5em;">
+          <md-checkbox style="margin: 0px;">
+            <b> * Other Entity Acts as Pay Agent </b> - Other Entity will receive End Users Invoice(s) and submit payment to Company
+          </md-checkbox>
+          <div style="padding-left: 30px;">
+            <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
+              <b>Other Entity Name: </b>
+            </div>
+            <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
+              <b>Other Entity Billing Address: </b>
+            </div>
+            <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
+              <b>Other Entity Authorized Signature: </b>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div flex-xs flex="49" style="margin-right: .5em; text-align: center;">
+        <md-checkbox style="margin: 0px;">
+          End User Recoves Duplicate Bill
+        </md-checkbox>
+      </div>
+      <div flex-xs flex="49" style="margin-right: .5em;">
+        <md-checkbox style="margin: 0px;">
+          End User Invoice Paid Via EFT
+        </md-checkbox>
+      </div>
+      <div layout="row" flex="100">
+        <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Customer Authorization Signature:</b> {{values.signature.signature}}
+        </div>
+        <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Date:</b> {{values.signature.date | date}}
+        </div>
+        <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Printed Authorization Name:</b> {{values.contact.name}}
+        </div>
+      </div>
+      <br>
+    </div>
+    <div layout="row" layout-wrap style="margin-top:0px; border: 1px solid black;">
+      <div flex="100" style="text-align: center; background-color: LightGray; border-bottom: 1px solid black">
+        <b>Marketer Information</b>
+      </div>
+      <div flex="100">
+        <div layout="row">
+          <div style="width: 50%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Legal Name:</b> WoodRiver Energy LLC
+          </div>
+          <div style="width: 50%; border-bottom: 1px solid black; padding: 5px;">
+            <b>EffectiveBill/NomMo/Yr:</b> {{}}
+          </div>
+        </div>
+        <div layout="row">
+          <div style="width: 100%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Mailing Address:</b> 3300 E 1st Ave., Ste 600, Denver CO 80206
+          </div>
+        </div>
+        <div layout="row">
+          <div style="width: 100%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Contact Name:</b> Jo Moak, Administrative Manager
+          </div>
+        </div>
+        <div layout="row">
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Phone Number:</b> 719-263-5720
+          </div>
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Fax Number:</b>
+          </div>
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>email:</b> jo.moak@woodriverenergy.com
+          </div>
+        </div>
+        <div layout="row" flex="100">
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Marketer Authorization Signature:</b>
+          </div>
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Date:</b> {{today | date}}
+          </div>
+          <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Printed Authorization Name:</b> Jo Moak
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+    <small>By execution hereof, Pay Agent/Marketer confirms that it accepts it designation and appointment for customer and agrees to act as Pay Agent/Marketer in accordance with the terms hereof and the transportation service agreement(s) that Customer has executed </small>
+    <div style="text-align: center">
+      <h5>Please fax the completed form to Companies Transportation Analyst at 404-829-2662</h5>
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.today = new Date()
+        $scope.values = document.values;
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>

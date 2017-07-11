@@ -1,0 +1,202 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div layout="row" layout-align="center center" style="text-align: center;">
+      <img src="http://s3-us-west-1.amazonaws.com/woodriver-site/assets/logo_glow.png" style="padding-left: 10px;" width="300px" height="150px" alt="Woodriver">
+    </div>
+    <div layout="row" layout-align="center center" style="text-align:
+                                                  center; margin-top:0px;">
+      <p>
+        3300 E. 1st Ave., Ste. 600
+        <br> Denver, CO 80206
+        <br> 888-510-9315
+      </p>
+    </div>
+    <div layout="row" layout-align="center center" style="text-align: center;
+   font-size: 20px;">
+      <b>ACH Recurring Payment Authorization Form</b>
+    </div>
+    <div layout="row" layout-align="left" style=" margin-left: 1em">
+      <p>
+        <b> Recurring Payments Will Make Your Life Easier:</b>
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em">
+      <ul>
+        <li> It is convenient (saving you time and postage)</li>
+        <li> It is convenient (saving you time and postage)</li>
+      </ul>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify; margin-left: 1em">
+      <p>
+        <b> Here is How Recurring Payments Work:</b>
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+        You authorize regularly scheduled charges to your checking or savings account. You will be charged a variable amount due based upon the natural gas sales agreement and the invoice provided by WoodRiver Energy. The charge will appear on your bank statement
+        as an ACH Debit. You agree that no prior-notification other than your actual invoice will be provided prior to the withdrawal date. In case you would like to change your automatic payment schedule you agree to provide WoodRiver Energy at least
+        30 days prior to the scheduled payment being collected.
+      </p>
+    </div>
+    <hr style="width: 95%; weight: 5px;">
+
+    <div layout="row" style="margin-left: 1em; font-size: 15px;">
+      <b>Please complete the information below:</b>
+    </div>
+
+    <div layout="row" style="padding: 5px;
+  margin-left: 1em;
+  margin-right: 1em;
+  margin-bottom: .2em">
+      <p>I <u style="text-decoration: underline;"> {{values.customerName}} </u> authorize WoodRiver Energy LLC to charge my bank account indicated below on the 18th of each month for payment of my natural gas services invoice.
+      </p>
+    </div>
+
+    <div layout="row" style="padding: 5px;
+              margin-left: 1em;
+              margin-right: 1em;
+              margin-bottom: .1em">
+      <div flex="50">
+        <div style="width:100%; border-bottom: 1px solid black;">
+          <b>Billing Address:</b> {{values.customerAddress}}
+        </div>
+        <br><br>
+        <div style="width:100%; border-bottom: 1px solid black;">
+          <b>  City, state, zip: </b> {{values.customerCity}} {{values.customerState}} {{values.customerZip}}
+        </div>
+      </div>
+      <br>
+      <div flex="50" style="padding-left: 20px;">
+        <div style="width:100%; border-bottom: 1px solid black;">
+          <b>Phone #:</b> {{values.customerPhone}}
+        </div><br><br>
+        <div style="width:100%; border-bottom: 1px solid black;">
+          <b>Email:</b> {{values.customerEmail}}
+        </div>
+      </div>
+    </div>
+    <div style="padding: 3em">
+      <div style="width: 100%; border-style: solid;">
+        <div layout="row" style="padding: 5px;
+                margin-left: 1em;
+                margin-right: 1em;
+                margin-bottom: .1em">
+          <div flex="50">
+            <div flex="100">Account Type
+              <label>
+              <input type="checkbox" ng-checked="isAccountTypeSavings()"
+              ng-model="savings"/>Savings
+            </label>
+              <label>
+              <input type="checkbox" ng-checked="isAccountTypeChecking()"
+              ng-model="checking"/>Checking
+            </label><br>
+            </div><br>
+            <div style="width:100%; border-bottom: 1px solid black;">
+              <b>Name on Acct: </b> {{values.customerName}}
+            </div><br><br>
+            <div style="width:100%; border-bottom: 1px solid black;">
+              <b>Bank Name:</b> {{values.bankName}}
+            </div><br><br>
+            <div style="width:100%; border-bottom: 1px solid black;">
+              <b>Account Number:</b> {{values.accountNumber}}
+            </div><br><br>
+            <div style="width:100%; border-bottom: 1px solid black;">
+              <b>Bank Routing  #:</b> {{values.routingNumber}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div layout="row" style="padding: 5px;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: .1em">
+      <div flex="50">
+        <div style="width:100%; border-bottom: 1px solid black;">
+          <b>SIGNATURE</b> {{values.signature.signature}}
+        </div>
+      </div><br>
+      <div flex="50" style="padding-left: 20px;">
+        <div style="width:100%; border-bottom: 1px solid black;">
+          <b>DATE</b> {{values.signature.date}}
+        </div>
+      </div>
+    </div>
+    <p style="padding: 10px; font-size:10px;">
+      I understand that this authorization will remain in effect until I cancel it in writing, and I agree to notify WoodRiver Energy, LLC in writing of any changes in my account information or termination of this authorization at least 15 days prior to the
+      next billing date. If the above noted periodic payment dates fall on a weekend or holiday, I understand that the payment may be executed on the next business day. I understand that because this is an electronic transaction, these funds may be withdrawn
+      from my account as soon as the above noted periodic transaction dates. In the case of an ACH Transaction being rejected for Non Sufficient Funds (NSF) I understand that WoodRiver Energy LLC may at its discretion attempt to process the charge again
+      within 30 days, and agree to an additional $25 charge for each attempt returned NSF which will be initiated as a separate transaction from the authorized recurring payment. I acknowledge that the origination of ACH transactions to my account must
+      comply with the provisions of U.S. law.  I agree not to dispute this recurring billing with my bank so long as the transactions correspond to the terms indicated in this authorization form.
+    </p>
+  </div>
+  </div>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        // $scope.values = document.values;
+        $scope.values = {
+          "accountType": 'Checking',
+          "bankName": 'wasd',
+          "bankAddress": '1313 woooo',
+          "bankCity": 'moneyCity',
+          "bankState": "CO",
+          "bankZip": 06328,
+          "routingNumber": 99000000,
+          "accountNumber": 90000000,
+          "customerName": "Alex James",
+          "customerAddress": "ONEILL NE, 687632252",
+          "customerCity": "denver",
+          "customerState": "co",
+          "customerZip": 80025,
+          "customerPhone": 4023364100,
+          "customerEmail": "wasd@wasd.com",
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+        $scope.isAccountTypeChecking = function() {
+          if ($scope.values.accountType === "Checking") {
+            return true;
+          } else false;
+        }
+        $scope.isAccountTypeSavings = function() {
+          if ($scope.values.accountType === "Savings") {
+            return true;
+          } else false;
+        }
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>

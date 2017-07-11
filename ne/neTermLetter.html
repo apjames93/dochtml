@@ -1,0 +1,91 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div layout="row" layout-align="start center" style="text-align:
+                                              left; margin-top:0px;">
+      <p>
+        {{today | date}}
+        <br> {{values.competitor.name}}
+        <br>{{values.competitor.contact_name}}
+        <br>{{values.competitor.address}}
+        <br>{{values.competitor.city}} , {{values.competitor.state}}, {{values.competitor.zip}}
+      </p>
+    </div>
+
+    <div layout="row" layout-align="start center" style="text-align:
+                                              left; margin-top:0px;">
+      <p>
+        To {{values.competitor.contact_name}}
+      </p>
+    </div>
+
+    <div layout="row" layout-align="start center" style="text-align:
+                                                  left; margin-top:0px;">
+      <p>
+        This notice is being sent to terminate the rollover provision with in our natural gas sales agreement between {{values.customer.name}} and {{values.customer.name}}. We have entered into an agreement with another natural gas supplier. We believe the ending
+        date of our current term is {{values.term | date}}. If different please notify us as to the actual ending date of our current term.
+        <br>
+        <br> Sincerely,
+        <br>{{values.customer.name}}
+        <br>{{values.contact.name}}
+        <br>{{values.contact.email}}
+        <br>{{values.contact.workPhone}}
+        <br>{{values.signature.signature}}
+      </p>
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.today = new Date()
+        $scope.values = document.values;
+        $scope.values = {
+          "competitor": {
+            "name": "Something cool INC",
+            "contact_name": "John Smith",
+            "address": '12345 something st',
+            "city": "Denver",
+            "state": 'CO',
+            "zip": 12345,
+          },
+          "customer": {
+            "name": "wasd Jenkens"
+          },
+          "contact": {
+            "name": "this is dope LLC",
+            "email": "wasd@wasd.com",
+            "workPhone": 303030303,
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>
