@@ -1,0 +1,314 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div style="margin-left: 1em; margin-right: 1em;">
+      <div layout="row" layout-align="start center" style="text-align: center;">
+        <img src="https://www.midamericanenergy.com/Content/images/svg/MidAmerican-Energy.svg" style="padding-left: 10px;" width="200px" height="150px" alt="Woodriver">
+      </div>
+
+      <div style="border: 1px solid;">
+        <div layout="row" layout-align="center center" style="text-align: center; font-size: 15px; margin-top: 10px;">
+          <b>MIDAMERICAN METERED GAS TRANSPORTATIONS</b>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align: center;
+    font-size: 15px; margin-bottom: 10px;">
+          SERVICE CONTRACT
+        </div>
+      </div>
+
+      <div style="border: 1px solid; border-top: 5px solid;">
+
+        <div layout="row" layout-align="center center" style="text-align:
+                                                  justify; margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+
+          </p>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align:
+                                                          justify;margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+            Customer, or pool Operation on behalf of Customer, (Customer), and pursuant to properly executed authorization and release agreement, agrees to the terms and conditions of the Monthly Metered Transportation (MMT) tariff service, which is part of MidAmerican Energy Company's (Company) Natural Gas Tariff, on file with and made effective by applicable public utility. Regulatory authorities, as may subsequently be amended.
+          </p>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align:
+                                                                  justify; margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+            This Contract shall replace all previous transportation contracts entered into by customer or on behalf of , and will be effective as of ____________, and shall continue in effect month to month thereafter, unless terminated by either party upon thirty (30) days written notice
+          </p>
+        </div>
+
+        <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+          <p style="margin:0px; ">
+            CUSTOMER INFORMATION
+          </p>
+        </div>
+
+        <div layout="row" style="padding: 5px;
+  border-bottom: 1px solid">
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Company:</b> {{values.customer.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Name:</b> {{values.contact.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Mailing Address:</b> {{}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>Phone:</b> {{values.contact.workPhone}}
+              </div>
+            </div>
+          </div>
+          <br>
+          <div flex="50">
+            <div class="">
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Service Address:</b> {{values.address.address1}} {{values.address.address2}} {{values.addresses.address1}}, {{values.addresses.address2}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Account Number:</b> {{values.accountNum}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Meter Number:</b> {{values.meterNum}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+                <b>Requested Start Date:</b> {{}}
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div layout="row">
+          <div flex style="padding: 5px;">
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Check this box if Customer has additional service addresses covered under this agreement and listed on Appendix A.</small>
+            </md-checkbox>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+          <p style="margin:0px; ">
+            OPTIONAL CAPACITY RELEASE - IOWA CUSTOMERS ONLY </p>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align:
+                                                                  justify; margin:0px; padding: 8px;">
+          <p style="margin:0px;">
+            A Customer can make a one-time request for interstate pipeline transportation capacity to be released to their pool Operator for their future interstate pipeline capacity by providing the Company a thirty 930) day written notice prior to the completion of the initial 12 month capacity release term on the MMT transportation service
+          </p>
+        </div>
+
+        <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid;">
+          <p style="margin:0px; ">
+            In WITNESS WHEREOF, the parties hereto have executed this Contract as of the day and year set forth below
+          </p>
+        </div>
+
+        <div layout="row" style="padding: 5px;
+  border-bottom: 1px solid">
+          <div flex="50">
+            <div class="">
+              <div style="text-align:center">
+                COMPANY
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Signed:</b> {{values.signature.signature}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>name:</b> {{values.customer.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>title:</b> {{}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>date:</b> {{values.signature.date | date}}
+              </div>
+            </div>
+          </div>
+          <div flex="50">
+            <div class="">
+              <div style="text-align:center">
+                CUSTOMER
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>Signed:</b> {{values.signature.signature}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>name:</b> {{values.contact.name}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>title:</b> {{}}
+              </div>
+              <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+                <b>date:</b> {{values.signature.date | date}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br><br>
+      <div layout="row" layout-align="start center" style="text-align: center;">
+        <img src="https://www.midamericanenergy.com/Content/images/svg/MidAmerican-Energy.svg" style="padding-left: 10px;" width="200px" height="150px" alt="Woodriver">
+      </div>
+      <div style="border: 1px solid;">
+        <div layout="row" layout-align="center center" style="text-align: center;
+        font-size: 15px;">
+          <b>MONTHLY METERED DAS TANSPORTATION</b>
+        </div>
+        <div layout="row" layout-align="center center" style="text-align: center;
+        font-size: 15px; margin-bottom: 10px;">
+          AUTHORIZATION AND RELEASE AGREEMENT
+        </div>
+      </div>
+      <div style="border: 1px solid; border-top: 5px solid; margin-bottom:20px;">
+        <div layout="row" layout-align="start center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid;">
+          <p style="margin-top:5px; ">
+            ADDITIONAL SERVICE ADDRESSES:
+          </p>
+        </div>
+        <div layout="row" style="background-color:#D3D3D3;">
+          <div layout="row" style="margin:0px; border-top: 1px solid; border-bottom: 1px solid; width:100%;">
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              ACCOUNT NUMBER
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              METER NUMBER
+            </div>
+            <div flex="40" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              SERVICE ADDRESS
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              CITY
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              STATE
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              ZIP
+            </div>
+          </div>
+        </div>
+
+        <div layout="row" ng-repeat="value in values.serviceAccountMeter">
+          <div layout="row" style="margin:0px; border-top: 1px solid; border-bottom: 1px solid; width:100%;">
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.account_number}}
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.meter_number}}
+            </div>
+            <div flex="40" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.service_address}}
+            </div>
+            <div flex="15" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.city}}
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.state}}
+            </div>
+            <div flex="10" style="padding: 8px; border-right: 1px solid; border-left: 1px solid; text-align:center">
+              {{value.zip}}
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+
+
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+    <script type="text/javascript">
+      angular.module('app', ['ngMaterial'])
+        .controller('primary', function($scope, $window) {
+          $scope.today = new Date();
+          $scope.values = document.values;
+
+          $scope.values = {
+            "customer": {
+              "name": "Something cool INC"
+            },
+            "contact": {
+              "name": "Alex James",
+              "email": "apjames93@gmail.com",
+              "workPhone": "3037209905"
+            },
+            "serviceAccountMeter": [{
+                service_address: "260 lol at you ln",
+                city: 'something',
+                state: 'co',
+                zip: 80808,
+                account_number: 90909090,
+                meter_number: 3030303,
+              },
+              {
+                service_address: "260 lol at you ln",
+                city: 'something',
+                state: 'co',
+                zip: 80808,
+                account_number: 90909090,
+                meter_number: 3030303,
+              },
+              {
+                service_address: "260 lol at you ln",
+                city: 'something',
+                state: 'co',
+                zip: 80808,
+                account_number: 90909090,
+                meter_number: 3030303,
+              },
+            ],
+            "addresses": {
+              "address1": "3030 Deltron ave",
+              "address2": "",
+              "city": "Denver",
+              "state": "CO",
+              "zip": 83030
+            },
+            "pipelines": {
+              "name": "TIG"
+            },
+            "signature": {
+              "date": "2017-03-23T05:00:00.000Z",
+              "signature": "Marvin F Fritz",
+              "personAbove": "I certify I am the person above",
+              "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+              "ipAddress": "97.121.82.81"
+            }
+          }
+
+          if ($scope.values.serviceAccountMeter.length != 28) {
+            while ($scope.values.serviceAccountMeter.length != 28) {
+              $scope.values.serviceAccountMeter.push({
+                service_address: "",
+                city: '',
+                state: '',
+                zip: '',
+                account_number: '',
+                meter_number: '',
+              })
+            }
+          }
+
+          $window.requestAnimationFrame(function() {
+            $scope.$apply(function() {
+              if (window.callPhantom) {
+                window.callPhantom();
+              }
+            });
+          });
+
+        });
+    </script>
+
+</body>
