@@ -1,0 +1,162 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500; padding:10px;" ng-cloak>
+
+    <div layout="row" layout-align="center center" style="text-align: center;
+   font-size: 20px;">
+      <b>Authorization AND CONSENT </b>
+    </div>
+
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+        This Authorization and Consent is given {{values.signature.date | date}}, by <u>{{values.customer.name}}</u> (“Customer”), as a participant in the Administrator’s small volume transportation program and is given as a supplement to the Administration and Transportation Agreements between Interstate Power and Light Company (“IPL”) and WoodRiver Energy, LLC (“Administrator”).
+      </p>
+    </div>
+
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+        This supplemental notification is given to authorize and empower the Administrator to act as agent on behalf of Customer and to enter into, execute and represent same in the Administration Agreement and Transportation Agreement between IPL and Administrator, copies of which are attached hereto and incorporated herein as if fully set out by this reference.
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+        The undersigned Customer agrees to indemnify, defend, hold harmless, and release IPL from any and all claims, damages, liabilities, or causes of action resulting from or arising out of Administrator’s representation and agency on behalf of said Customer, or the termination of any prior Authorization and Consent relating to the subject matter hereof. The undersigned agrees that it shall not withdraw such authorization without giving sixty (60) days prior written notification to IPL.
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+        The undersigned further acknowledges and agrees that it has received a copy of the Administration Agreement and Transportation Agreement between IPL and the Administrator and agrees to be bound by the terms and conditions contained therein.
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+        This Authorization and Consent supersedes and replaces any prior Authorization and Consent executed by the undersigned Customer.
+      </p>
+    </div>
+
+    <div layout="row" style="padding: 5px;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: .1em">
+
+      <div flex="50">
+        <div class="">
+          <p>Approved as to form and content: WoodRiver Energy, LLC</p>
+
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>by:</b> Jo Nanette Moak
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Title:</b> Administrative Manager
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Date:</b> {{today | date}}
+          </div>
+        </div>
+      </div>
+      <br>
+      <div flex="50">
+        <div class="">
+          <p><b>Customer:</b> {{values.customer.name}}</p>
+
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>by:</b> {{values.contact.name}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Title:</b>
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Date:</b> {{today | date}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" style="margin-top:20px;" >
+      ******SEE ATTACHED EXHIBIT (Multiple Facilities)******
+    </div>
+
+    <div layout="row" style="margin-top:20px;" >
+    Exhibit to Authorization and Consent __________________\ WoodRiver Energy
+    </div>
+  <div layout="row" style="margin-top:20px;" >
+    <div flex='60'>
+          Delivery Point/ Facility Address: {{values.addresses.address1}} {{values.addresses.address2}}, {{values.addresses.city}} {{values.addresses.state}} {{values.addresses.zip}}
+    </div>
+    <div flex>
+      Acct: {{values.acct}}
+    </div>
+    <div flex>
+      Meter: {{values.meter}}
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.values = document.values;
+        $scope.values = {
+          "customer": {
+            "name": "Something cool INC"
+          },
+          "contact": {
+            "name": "Alex James",
+            "email": "apjames93@gmail.com",
+            "workPhone": "3037209905"
+          },
+          "addresses": {
+            "address1": "3030 Deltron ave",
+            "address2": "",
+            "city": "Denver",
+            "state": "CO",
+            "zip": 83030
+          },
+          "pipelines": {
+            "name": "TIG"
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+        $scope.isAccountTypeChecking = function() {
+          if ($scope.values.accountType === "Checking") {
+            return true;
+          } else false;
+        }
+        $scope.isAccountTypeSavings = function() {
+          if ($scope.values.accountType === "Savings") {
+            return true;
+          } else false;
+        }
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>
