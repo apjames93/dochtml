@@ -1,0 +1,648 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500; padding: 15px;" ng-cloak>
+
+  <div layout="row" layout-align="center center" style="text-align: center;
+  font-size: 20px;">
+    WoodRiver Energy LLC
+  </div>
+  <div layout="row" layout-align="center center" style="text-align: center;
+  font-size: 20px;">
+    <b>CREDIT APPLICATION FOR A BUSINESS ACCOUNT</b>
+  </div>
+
+  <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+    <p style="margin:0px; ">
+      BUSINESS CONTACT INFORMATION
+    </p>
+  </div>
+
+<div style="margin:0px; padding: 8px; border: 1px solid;">
+  <div layout="row" layout-align="center center" >
+    <div layout="row" flex="50">
+      <div flex="50" style="border: 1px solid;  padding: 8px;">
+        Title
+      </div>
+      <div flex="50" style="border: 1px solid;  padding: 8px;">
+        {{}} wasd
+      </div>
+    </div>
+    <div layout="row" flex="50">
+      <div flex="50" style="border: 1px solid;  padding: 8px;">
+        Date business commenced
+      </div>
+      <div flex='50' style="border: 1px solid;  padding: 8px;">
+        {{}} wasd
+      </div>
+    </div>
+  </div>
+
+  <div layout="row" layout-align="center center" >
+    <div layout="row" flex="50">
+      <div layout="column" style="width: 100%" >
+        <div layout="row"  >
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Company name
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{values.customer.name}}
+          </div>
+        </div>
+      <div layout="row" >
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          Phone
+        </div>
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          {{values.contact.workPhone}}
+        </div>
+      </div>
+      <div layout="row" >
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          Email
+        </div>
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          {{values.contact.email}}
+        </div>
+      </div>
+      <div layout="row" >
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          Registered company address
+        </div>
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{values.addresses.address1}} {{values.addresses.address2}}
+        </div>
+      </div>
+      <div layout="row" >
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          City state zip
+        </div>
+        <div flex="50" style="border: 1px solid;  padding: 8px;">
+          {{values.addresses.city}}, {{values.addresses.state}}, {{values.addresses.zip}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div layout="row" flex="50">
+        <div layout="column" style="padding: 5px; border-right: 1px solid; margin-top: 15px;" flex="50" >
+          <div flex>
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Sole proprietorship</small>
+            </md-checkbox>
+          </div>
+          <div flex>
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Partnership</small>
+            </md-checkbox>
+          </div>
+          <div flex>
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Corporation</small>
+            </md-checkbox>
+          </div>
+          <div flex>
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Other</small>
+            </md-checkbox>
+          </div>
+        </div>
+        <div flex="50" ></div>
+      </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+      <p style="margin:0px; ">
+        BUSINESS CREDIT INFORMATION
+      </p>
+    </div>
+    <div style="margin:0px; padding: 8px; border: 1px solid;">
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">City State Zip</div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+          {{values.addresses.city}}, {{values.addresses.state}}, {{values.addresses.zip}}
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Bank Name
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+              bank name {{}}
+          </div>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            How long at current address?
+            <br>
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+              {{}} some amount of time
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            <small>Primary business address City, State ZIP Code</small>
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+            <small>
+              {{values.addresses.address1}} {{values.addresses.address2}}
+              {{values.addresses.city}}, {{values.addresses.state}}, {{values.addresses.zip}}
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Duns Number
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{}} number
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Phone
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+              {{values.contact.workPhone}}
+          </div>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Phone
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+              {{values.contact.workPhone}}
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Account Number
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{}} number
+          </div>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Email
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px; ">
+              {{values.contact.email}}
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="30" style="border: 1px solid;  padding: 8px;">
+            Type of account
+          </div>
+          <div flex="70" style="border: 1px solid;" >
+            <md-checkbox aria-label="Checkbox 1" >
+              <small>Savings</small>
+            </md-checkbox>
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Checking</small>
+            </md-checkbox>
+            <md-checkbox aria-label="Checkbox 1">
+              <small>Other</small>
+            </md-checkbox>
+          </div>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+        <p style="margin:0px; ">
+          BUSINESS/TRAID REFERENCES
+        </p>
+      </div>
+      <div style="margin:0px; padding: 8px; border: 1px solid;">
+
+        <div style="border-bottom: 5px solid;">
+          <div layout="row" layout-align="center center" >
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                Company name
+              </div>
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                {{values.customer.name}}
+              </div>
+            </div>
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                Phone
+              </div>
+              <div flex='50' style="border: 1px solid;  padding: 8px;">
+                  {{}}
+              </div>
+            </div>
+          </div>
+
+          <div layout="row" layout-align="center center" >
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                Address
+              </div>
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                {{}}
+              </div>
+            </div>
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                Fax
+              </div>
+              <div flex='50' style="border: 1px solid;  padding: 8px;">
+                  {{}}
+              </div>
+            </div>
+          </div>
+
+          <div layout="row" layout-align="center center" >
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+              City, State ZIP Code
+              </div>
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                {{}}
+              </div>
+            </div>
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                E-mail
+              </div>
+              <div flex='50' style="border: 1px solid;  padding: 8px;">
+                  {{}}
+              </div>
+            </div>
+          </div>
+
+          <div layout="row" layout-align="center center" >
+            <div layout="row" flex="50">
+              <div flex="30" style="border: 1px solid;  padding: 8px;">
+                Type of account
+              </div>
+              <div flex="70" style="border: 1px solid;" >
+                <md-checkbox aria-label="Checkbox 1" >
+                  <small>Savings</small>
+                </md-checkbox>
+                <md-checkbox aria-label="Checkbox 1">
+                  <small>Checking</small>
+                </md-checkbox>
+                <md-checkbox aria-label="Checkbox 1">
+                  <small>Other</small>
+                </md-checkbox>
+              </div>
+            </div>
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                other
+              </div>
+              <div flex='50' style="border: 1px solid;  padding: 8px;">
+                  {{}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="border-bottom: 5px solid;">
+          <div layout="row" layout-align="center center" >
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                Company name
+              </div>
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                {{values.customer.name}}
+              </div>
+            </div>
+            <div layout="row" flex="50">
+              <div flex="50" style="border: 1px solid;  padding: 8px;">
+                Phone
+              </div>
+              <div flex='50' style="border: 1px solid;  padding: 8px;">
+                  {{}}
+              </div>
+            </div>
+          </div>
+
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              Address
+            </div>
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              {{}}
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              Fax
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+                {{}}
+            </div>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              City, State ZIP Code
+            </div>
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              {{}}
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              E-mail
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+              {{}}
+            </div>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="30" style="border: 1px solid;  padding: 8px;">
+              Type of account
+            </div>
+            <div flex="70" style="border: 1px solid;" >
+              <md-checkbox aria-label="Checkbox 1" >
+                <small>Savings</small>
+              </md-checkbox>
+              <md-checkbox aria-label="Checkbox 1">
+                <small>Checking</small>
+              </md-checkbox>
+              <md-checkbox aria-label="Checkbox 1">
+                <small>Other</small>
+              </md-checkbox>
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              other
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+                {{}}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-bottom: 5px solid;">
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              Company name
+            </div>
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              {{values.customer.name}}
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              Phone
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+                {{}}
+            </div>
+          </div>
+        </div>
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              Address
+            </div>
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              {{}}
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              Fax
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+                {{}}
+            </div>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+            City, State ZIP Code
+            </div>
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              {{}}
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              E-mail
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+                {{}}
+            </div>
+          </div>
+        </div>
+
+        <div layout="row" layout-align="center center" >
+          <div layout="row" flex="50">
+            <div flex="30" style="border: 1px solid;  padding: 8px;">
+              Type of account
+            </div>
+            <div flex="70" style="border: 1px solid;" >
+              <md-checkbox aria-label="Checkbox 1" >
+                <small>Savings</small>
+              </md-checkbox>
+              <md-checkbox aria-label="Checkbox 1">
+                <small>Checking</small>
+              </md-checkbox>
+              <md-checkbox aria-label="Checkbox 1">
+                <small>Other</small>
+              </md-checkbox>
+            </div>
+          </div>
+          <div layout="row" flex="50">
+            <div flex="50" style="border: 1px solid;  padding: 8px;">
+              other
+            </div>
+            <div flex='50' style="border: 1px solid;  padding: 8px;">
+                {{}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+      <p style="margin:0px; ">
+        AGREEMENT
+      </p>
+    </div>
+    <div style="margin:0px; padding: 8px; border: 1px solid;">
+      1. By submitting this application, you authorize Woodriver Energy LLC to make inquiries into the banking and business/trade references that you have supplied.
+    </div>
+
+    <div layout="row" layout-align="center center" style="margin:0px; padding: 8px; border-top: 1px solid; border-bottom: 1px solid; background-color:#D3D3D3;">
+      <p style="margin:0px; ">
+        SIGNATURES
+      </p>
+    </div>
+    <div style="margin:0px; padding: 8px; border: 1px solid;">
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+          signature
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{}}
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+          signature
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+              {{}}
+          </div>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+          Name and Title
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{}}
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            Name and Title
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+              {{}}
+          </div>
+        </div>
+      </div>
+
+      <div layout="row" layout-align="center center" >
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+          date
+          </div>
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            {{}}
+          </div>
+        </div>
+        <div layout="row" flex="50">
+          <div flex="50" style="border: 1px solid;  padding: 8px;">
+            date
+          </div>
+          <div flex='50' style="border: 1px solid;  padding: 8px;">
+              {{}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.values = document.values;
+        $scope.values = {
+          "customer": {
+            "name": "Something cool INC"
+          },
+          "contact": {
+            "name": "Alex James",
+            "email": "apjames93@gmail.com",
+            "workPhone": "3037209905"
+          },
+          "serviceAccountMeter": [{
+              service_address: "260 lol at you ln",
+              city: 'something',
+              state: 'co',
+              zip: 80808,
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+            {
+              service_address: "260 lol at you ln",
+              city: 'something',
+              state: 'co',
+              zip: 80808,
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+            {
+              service_address: "260 lol at you ln",
+              city: 'something',
+              state: 'co',
+              zip: 80808,
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+          ],
+          "addresses": {
+            "address1": "3030 Deltron ave",
+            "address2": "",
+            "city": "Denver",
+            "state": "CO",
+            "zip": 83030
+          },
+          "pipelines": {
+            "name": "TIG"
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+        $scope.isAccountTypeChecking = function() {
+          if ($scope.values.accountType === "Checking") {
+            return true;
+          } else false;
+        }
+        $scope.isAccountTypeSavings = function() {
+          if ($scope.values.accountType === "Savings") {
+            return true;
+          } else false;
+        }
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>
