@@ -79,7 +79,7 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
     <div layout="row" layout-align="left" style="text-align: justify;
    margin-left: 1em; padding-right: 15px; padding-left: 15px;">
       <p>
-        <b>Term:</b>Term: 12 billing months from the enrollment date or effective service date
+        <b>Term:</b> {{values.term.months}} billing months from the enrollment date or effective service date
       </p>
     </div>
 
@@ -122,7 +122,7 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
     <div layout="row" layout-align="left" style="text-align: justify;
    margin-left: 1em; padding-right: 15px; padding-left: 15px;">
       <p>
-        <b>Contract Price:</b> Contract Price: Buyers natural gas price for the months of November through March shall be defined as the first of the month index price for Northern Natural Gas - Ventura plus Sellers fee of $1.59 per MMBtu AND for the
+        <b>Contract Price:</b> Buyers natural gas price for the months of November through March shall be defined as the first of the month index price for Northern Natural Gas - Ventura plus Sellers fee of $1.59 per MMBtu AND for the
         months of April through October shall be Northern Natural Gas - Ventura plus the Sellers fee of $1.09 per MMBtu.
         <br>
         <br> There are no true ups
@@ -289,6 +289,11 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
               meter_number: 3030303,
             },
           ],
+          term : {
+            year : 3,
+            price : 4.79,
+            months : 36,
+          },
           "addresses": {
             "address1": "3030 Deltron ave",
             "address2": "",
