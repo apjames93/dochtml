@@ -1,0 +1,377 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+  <div style="margin-left: 1em; margin-right: 1em;">
+    <div layout="row" layout-align="center center" style="text-align: center;">
+      <img src="http://s3-us-west-1.amazonaws.com/woodriver-site/assets/logo_glow.png" style="padding-left: 10px;" width="300px" height="150px" alt="Woodriver">
+    </div>
+    <div layout="row" layout-align="center center" style="text-align:
+                                              center; margin-top:0px;">
+      <p>
+        3300 E. 1st Ave., Ste. 600
+        <br> Denver, CO 80206
+        <br> 888-510-9315
+      </p>
+    </div>
+    <div layout="row" layout-align="center center" style="text-align: center;
+font-size: 20px;">
+      <b>NATURAL GAS SALES AGREEMENT</b>
+    </div>
+    <div layout="row" layout-align="center center" style="text-align: center;">
+      <div style="width:15%; border-bottom: 1px solid black;">
+        <b>Dated:</b> {{today | date }}
+      </div>
+    </div>
+    <br>
+    <div layout="row" style="padding: 5px;
+          margin-left: 1em;
+          margin-right: 1em;
+          margin-bottom: .1em">
+
+      <div flex="50">
+        <div class="">
+          <p><b>Seller:</b> Woodriver Energy LLC<br> 3300 E 1st Ave, Suite 600 <br> Denver, CO, 80206</p>
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Attn:</b> {{values.dealmaker.name}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Phone:</b> {{values.dealmaker.phone}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Email:</b> {{values.dealmaker.email}}
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <div flex="50">
+        <div class="">
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Buyer:</b> {{values.customer.name}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Bill To:</b> {{values.addresses.address1}} {{values.addresses.address2}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            {{values.addresses.city}} {{values.addresses.state}} {{values.addresses.zip}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Attn:</b> {{values.contact.name}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Phone:</b> {{values.contact.workPhone}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Email:</b> {{values.contact.email}}
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div style="width:100%; border-bottom: 1px solid black;">
+      <br>
+    </div>
+
+    <div layout="row" layout-align="left" style="text-align: justify;
+ margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p>
+    </div>
+
+    <p>
+      <b>Term:</b>  3 years beginning <u style="text-decoration: underline;">
+      {{values.term | date}} </u> ("the effective date") or the first day of the month in which there is initial gas flow and continuing year to year thereafter unless cancelled by either party giving at least sixty (60) days written notice prior to the end of the initial term or any subsequent anniversary date thereto. The effective date shall thus be the first day of the first of the month in which the Transporting LDC effects delivery of gas to Buyer's facility as a transporter.
+    </p>
+  </div>
+
+  <div style="width:100%; border-bottom: 1px solid black;">
+    <br>
+  </div>
+
+
+  <div layout="row" style="padding: 5px;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: .1em">
+    <div flex="50">
+      <div style="width:100%; border-bottom: 1px solid black;">
+        <b>Pipeline:</b> {{values.pipelines.name}}
+      </div>
+      <br>
+    </div>
+    <br>
+    <div flex="50" style="padding-left: 20px;">
+      <div style="width:100%; border-bottom: 1px solid black;">
+        <b>LDC:</b> MidAmerican Energy
+      </div><br>
+    </div>
+  </div>
+
+  <div layout="row" style="padding: 5px;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: .1em">
+    <div flex="50">
+      <div style="width:100%;">
+        <b>Delivery Point / Facitity Address:</b>
+      </div>
+      <br>
+    </div>
+    <br>
+    <div flex="25" style="padding-left: 20px;">
+      <div style="width:100%;">
+        <b>Account Meter:</b>
+      </div><br>
+    </div>
+    <div flex="25" style="padding-left: 20px;">
+      <div style="width:100%;">
+        <b>Meter:</b>
+      </div><br>
+    </div>
+  </div>
+
+  <div layout="row" style="padding: 5px;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: .1em">
+    <div flex="50">
+      <div style="width:100%;">
+        {{values.addresses.address1}}, {{values.addresses.address2}}, {{values.city}} {{values.addresses.state}}, {{values.addresses.zip}}
+      </div>
+      <br>
+    </div>
+    <br>
+    <div flex="25" style="padding-left: 20px;">
+      <div style="width:100%;">
+        {{}} something for now
+      </div><br>
+    </div>
+    <div flex="25" style="padding-left: 20px;">
+      <div style="width:100%;">
+        {{}} something for now
+      </div><br>
+    </div>
+  </div>
+
+
+  <div style="width:100%; border-bottom: 1px solid black;">
+    <br>
+  </div>
+  <div layout="row" layout-align="left" style="text-align: justify;
+ margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+    <p>
+        <b>Contract Price:</b> The contract price for the first year of the Agreement shall be 95% of the MidAmerican’s MVF/SVF total cost for natural gas service. The price for the remaining term of the Agreement and any subsequent rollover term shall be 95% of MidAmerican’s MVF/SVF whichever is applicable total cost for natural gas service.
+    </p>
+  </div>
+
+  <div style="width:100%; border-bottom: 1px solid black;">
+    <br>
+  </div>
+  <div layout="row" layout-align="left" style="text-align: justify;
+ margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+    <p>
+      <b>Special Provisions:</b>
+      <br>
+      1. In addition to the contract price stated above Buyer is responsible for all transportation charges, fees and any and all taxes to effectuate delivery of gas to Buyer. Any tariff changes effecting transportation cost shall be the responsibility of Buyer.
+    </p>
+  </div>
+  <div style="width:100%; border-bottom: 1px solid black; text-align:center;">
+    <b>This Agreement is subject to the General Terms and Conditions as described on page 2 of this agreement.</b>
+    <br>
+  </div>
+
+  <div layout="row" style="padding: 5px;
+          margin-left: 1em;
+          margin-right: 1em;
+          margin-bottom: .1em">
+
+    <div flex="50">
+      <div class="">
+        <p><b>Seller:</b> Woodriver Energy LLC</p>
+
+        <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+          <b>by:</b> Jo Nanette Moak
+        </div>
+        <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Title:</b> Administrative Manager
+        </div>
+        <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+          <b>Date:</b> {{today | date}}
+        </div>
+      </div>
+    </div>
+
+    <br>
+    <div flex="50">
+      <div class="">
+        <p><b>buyer:</b> {{values.customer.name}}</p>
+
+        <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+          <b>by:</b> {{values.contact.name}}
+        </div>
+        <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+          <b>Title:</b>
+        </div>
+        <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+          <b>Date:</b> {{today | date}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div layout="row" layout-align="left" style="text-align: justify;
+margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+    <p><small>This Sales Agreement is considered proprietary and confidential.</small></p>
+  </div>
+  <div layout="row" layout-align="center center" style="text-align: center;
+font-size: 20px;">
+    <b>General Terms and Conditions</b>
+  </div>
+  <div layout="row" layout-align="left" style="text-align: justify;
+margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+    <ol>
+      <li>
+        <b>Term:</b> Unless otherwise stated on the front of the Agreement, this Agreement shall renew automatically for a Term of (1) year and year -to-year thereafter unless terminated by either party by providing 30 day written notice prior to the
+        end of the initial Term or any subsequent anniversary date.
+      </li>
+      <li>
+        <b>Quantity:</b> Seller agrees to sell and Buyer agrees to purchase 100% of the natural gas requirements of Buyer.
+      </li>
+      <li>
+        <b>Transportation:</b> Seller shall arrange for transportation to the delivery point and Buyer shall arrange for subsequent transportation from the delivery point.
+      </li>
+      <li>
+        <b>Imbalances:</b> Buyer and Seller shall use best efforts to avoid imbalances and imbalance penalties (if any). Should either Buyer or Seller receive an imbalance penalty charge from the transporting pipeline or LDC, Seller shall determine the
+        validity of the charges. If the Buyer’s failure to accept a quantity of gas equal to Seller’s nomination, then Buyer shall pay for or reimburse Seller for such imbalance charges. If the Seller fails to deliver the quantity of gas equal to the
+        Buyer’s confirmed nomination then the cost is incurred shall be the liability of the Seller.
+      </li>
+
+      <li>
+        <b> Billing and Payment:</b> Seller shall e-Bill the Buyer on the earliest practicable date each month showing the quantity of gas billable for the previous month’s bill period and sum payable by ACH to Seller from Buyer. Buyer may pay by ACH
+        to Seller the sum shown by each billing, including sales, use, franchise and excise taxes and all other governmental impositions relative to the sale or consumption of natural gas, based on net fifteen (15) days from the billing date. With the
+        exception of e-Bill arrangements all monthly billing may be subject to a $5.00 per month per invoice processing fee. Billing unpaid when due shall be subject to a late charge of Ten Dollars ($10.00) plus interest at the rate of one and one half
+        percent (1 ½%) per month or the maximum rate allowed by law, whichever is less.
+      </li>
+
+      <li>
+        <b>Credit Requirements:</b> Buyer shall make credit arrangements satisfactory to the Seller, which may include providing a deposit, prepayments, Letter of Credit, or other security as requested by Seller. Seller reserves the right to review such
+        credit arrangements at any time before, or during the term of this contract. If Buyer fails to make credit arrangements satisfactory to Seller, Seller at sole discretion may terminate this contract and/or suspend deliveries hereunder upon five
+        (5) business days prior to notice to Buyer.
+      </li>
+      <li>
+        <b>Event of Default:</b> In the event of Default by either party, the Defaulting Party or its guarantor hereby agrees that the other party shall have the right, at its sole election, to immediately withhold or suspend deliveries or payments upon
+        written notice and/ or to terminate and liquidate the transactions under this Agreement in good faith and in a commercially responsible manner, and to assess and apply all costs of liquidation and early termination to the Defaulting Party, in
+        addition to any and all other remedies available hereunder.
+      </li>
+      <li>
+        <b>Title & Possession:</b> Buyer shall take title, possession and control of the gas not later than at the Point of Delivery.
+      </li>
+
+      <li>
+        <b>Force Majeure:</b>An event of Force Majeure shall not excuse either party from liquidation damages related to the settlement of any Basis or Fixed Price related to quantities. Force Majeure means acts of God, strikes, lock outs, or other industrial disturbances including those involving or affecting parties producing or transporting gas for Seller.
+      </li>
+
+
+        <b> Laws and Regulation: </b>This Agreement, each of its provisions, and all supplements amendments or addenda to it are subject to all valid, applicable federal and state laws and to the orders, rules and regulations of any duly constituted regulatory
+        body or authority, state or federal, having jurisdiction. The laws of the state of Colorado shall govern in interpretation and performance of this Agreement. Venue for any action tried hereunder shall be in Denver County, Colorado, whether in
+        federal or state court.
+      </li>
+      <li>
+        <b>Assignment:</b> Buyer may not assign any of its rights or obligations under this Agreement; except that Buyer may assign this Agreement in connection with the sale or transfer of the real property associated with the delivery point hereunder,
+        provided that Seller shall have received written notice from Buyer thereof, and Seller shall have been provided with certified copies of the instruments properly evidencing such sale or transfer, and further provided that any such proposed assignee
+        shall have satisfied the credit requirements of this Agreement and shall have executed and delivered to Seller all documents required by Seller in order to be bound by this Agreement. Any assignment by Buyer in accordance with the foregoing sentence
+        shall not become effective until the first day of the calendar month next following the date upon which all of the foregoing requirements have been satisfied. Seller may assign this Agreement and any or all sums payable by Buyer hereunder upon
+        notice to Buyer of such as assignment, and without limiting the foregoing, Buyer hereby consents to the pledge and collateral assignment of this Agreement by Seller to Shell Energy North America (USA), L.P. and its successors and assigns. Upon
+        notice to Buyer of any such assignment by Seller, Buyer shall pay all sums due hereunder to such assignee without offset, counterclaim or defense of any kind.
+      </li>
+      <li>
+        <b>Confidentiality:</b> The parties agree to keep the terms of this Agreement and of any transaction hereunder, including but not limited to, the Base Contract Price, the Monthly Quantity, and the Term, confidential, except as may be required
+        to effectuate transportation of the gas or to meet the requirements of a state or federal regulatory agency having jurisdiction over the matter for which information is sought.
+      </li>
+      <li>
+        <b>Agreement and Confirmation:</b> In order to make timely transactions, any subsequent transactions in e-mail or a telephone conversation with the offer and acceptance constituting an agreement of the parties. The parties shall be legally bound
+        from the time they agree to the transaction terms and may each rely thereon. Seller’s confirmation will be deemed conclusive and will bind Buyer and Seller if not received by the end of the second business day following Buyer’s receipt of the
+        confirmation.
+      </li>
+      <li>
+        <b>Limitations:</b> FOR BREACH OF ANY PROVISION FOR WHICH AN EXPRESS REMEDY OR MEASURE OF DAMAGES IS PROVIDED, SUCH EXPRESS REMEDY OR MEASURE OF DAMAGES SHALL BE THE SOLE AND EXCLUSIVE REMEDY. A PARTY’S LIABILITY HEREUNDER SHALL BE LIMITED AS
+        SET FORTH IN SUCH PROVISION, AND ALL OTHER REMEDIES OR DAMAGES AT LAW OR IN EQUITY ARE WAIVED.
+      </li>
+      <li>
+        <b>Disclaimer:</b> The Seller nor any of its employees or affiliates is acting as a Broker, Dealer or Commodity Trading Advisor, and no such person is registered as a Commodity Trading Advisor. Seller is not advising Buyer concerning the use of
+        any registered futures contract or standardized instrument for future delivery on any exchange. Buyer acknowledges that all decisions related to energy transactions are authorized and executed based upon the Buyer’s full knowledge and independent
+        action and confirms that Buyer is an (eligible contract participant) as defined by the CEA.
+      </li>
+    </ol>
+  </div>
+  <div layout="row" layout-align="center center">
+    <div style="width:50%; border-bottom: 1px solid black; padding: 5px;">
+      <b>Buyers signature:</b>{{values.signature.signature}}
+    </div>
+  </div>
+  <br><br><br>
+  <div layout="row" layout-align="left" style="text-align: justify;
+margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+    <p><b>This Sales Agreement is considered proprietary and confidential.</b></p>
+  </div>
+  </div>
+
+
+
+
+  </div>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.today = new Date();
+        $scope.values = document.values;
+
+        $scope.values = {
+          "customer": {
+            "name": "Something cool INC"
+          },
+          "contact": {
+            "name": "Alex James",
+            "email": "apjames93@gmail.com",
+            "workPhone": "3037209905"
+          },
+          "addresses": {
+            "address1": "3030 Deltron ave",
+            "address2": "",
+            "city": "Denver",
+            "state": "CO",
+            "zip": 83030
+          },
+          "pipelines": {
+            "name": "TIG"
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+        $window.requestAnimationFrame(function() {
+          $scope.$apply(function() {
+            if (window.callPhantom) {
+              window.callPhantom();
+            }
+          });
+        });
+
+      });
+  </script>
+
+</body>
