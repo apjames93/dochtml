@@ -35,7 +35,11 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
         <br>{{values.contact.name}}
         <br>{{values.contact.email}}
         <br>{{values.contact.workPhone}}
-        <br>{{values.signature.signature}}
+        <br>
+        <div ng-if="values.signature.signature">
+          <u style="text-decoration: underline;">{{values.signature.signature}} digitaly signed document at {{values.signature.ipAddress}} on</u> date:
+           <u style="text-decoration: underline;">{{values.signature.date}}</u>
+        </div>
       </p>
     </div>
   </div>

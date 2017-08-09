@@ -81,8 +81,11 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
     <div layout="row" layout-wrap style="margin-top:0px; border: 1px solid black; padding: 5px;">
       <span style="color: red">
        DUE TO PRIVACY REQUIREMENTS, SEPARATE CUSTOMER CONSENT SIGNATURE REQUIRED:
-     </span> <u style="text-decoration: underline;">________________ </u> date:
-      <u style="text-decoration: underline;">_________________</u>
+     </span>
+     <div ng-if="values.signature.signature">
+       <u style="text-decoration: underline;">{{values.signature.signature}} digitaly signed document at {{values.signature.ipAddress}} on</u> date:
+        <u style="text-decoration: underline;">{{values.signature.date}}</u>
+     </div>
       <br>
       <div flex-xs flex="100" style="margin-right: .5em;">
         <md-checkbox ng-disabled="true" style="margin: 0px;">
@@ -109,7 +112,11 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
       </div>
       <div layout="row" flex="100">
         <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
-          <b>signature:</b> {{values.signature.signature}}
+          <b>signature:</b>
+          <div ng-if="values.signature.signature">
+            <u style="text-decoration: underline;">{{values.signature.signature}} digitaly signed document at {{values.signature.ipAddress}} on</u> date:
+             <u style="text-decoration: underline;">{{values.signature.date}}</u>
+          </div>
         </div>
         <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
           <b>Printed Name:</b> {{values.contact.name}}
@@ -143,7 +150,8 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
               <b>Marketer Billing Address: </b> {{}}
             </div>
             <div style="width:50%; border-bottom: 1px solid black;padding: 5px;">
-              <b>Marketer Authorized Signature: </b> {{}}
+              <b>Marketer Authorized Signature: </b>
+
             </div>
           </div>
         </div>
@@ -179,7 +187,11 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
       </div>
       <div layout="row" flex="100">
         <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
-          <b>Customer Authorization Signature:</b> {{values.signature.signature}}
+          <b>Customer Authorization Signature:</b>
+          <div ng-if="values.signature.signature">
+            <u style="text-decoration: underline;">{{values.signature.signature}} digitaly signed document at {{values.signature.ipAddress}} on</u> date:
+             <u style="text-decoration: underline;">{{values.signature.date}}</u>
+          </div>
         </div>
         <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
           <b>Date:</b> {{values.signature.date | date}}
@@ -227,6 +239,7 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
         <div layout="row" flex="100">
           <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
             <b>Marketer Authorization Signature:</b>
+            <img src="https://s3-us-west-1.amazonaws.com/woodriver-site/assets/joSig.jpg" alt="" style="height: 75px; width: 250px;" ng-if="values.signature.signature">
           </div>
           <div style="width: 33%; border-bottom: 1px solid black; padding: 5px;">
             <b>Date:</b> {{today | date}}
@@ -255,6 +268,55 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
       .controller('primary', function($scope, $window) {
         $scope.today = new Date()
         $scope.values = document.values;
+        $scope.values = {
+          "customer": {
+            "name": "Something cool INC"
+          },
+          "contact": {
+            "name": "Alex James",
+            "email": "apjames93@gmail.com",
+            "workPhone": "3037209905"
+          },
+          "serviceAccountMeter": [{
+              service_address: "260 lol at you ln somewhere NA 85236",
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+            {
+              service_address: "260 lol at you ln somewhere NA 85236",
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+            {
+              service_address: "260 lol at you ln somewhere NA 85236",
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+          ],
+          term : {
+            program :  'Percent Savings',
+            // program :  'Fixed Price',
+            year : '3 Year Term',
+            price : '$4.79 Per dekatherm',
+            fee : 4.79,
+            months : 36,
+          },
+          "addresses": {
+            "address1": "3030 Deltron ave",
+            "address2": "",
+            "city": "Denver",
+            "state": "CO",
+            "zip": 83030
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
 
         $window.requestAnimationFrame(function() {
           $scope.$apply(function() {

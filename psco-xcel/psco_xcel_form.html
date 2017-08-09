@@ -36,17 +36,16 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
         <div class="">
           <p><b>Seller:</b> Woodriver Energy LLC<br> 3300 E 1st Ave, Suite 600 <br> Denver, CO, 80206</p>
           <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
-            <b>Attn:</b> Brittany Meints
+            <b>Attn:</b> Jo Moak
           </div>
           <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
-            <b>Phone:</b> 402-281-0865
+            <b>Phone:</b> 719-263-5720
           </div>
           <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
-            <b>Email:</b> brittany.meints@woodriverenergy.com
+            <b>Email:</b> jo.moka@woodriverenergy.com
           </div>
         </div>
       </div>
-
       <br>
       <div flex="50">
         <div class="">
@@ -77,9 +76,36 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
     </div>
 
     <div layout="row" layout-align="left" style="text-align: justify;
-   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;"
+   ng-if="values.term.program === 'Guaranteed Savings'">
       <p>
         <b>Term:</b> {{values.term.program}} {{values.term.months}} billing months from the enrollment date or effective service date
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;"
+   ng-if="values.term.program === 'Fixed Price'">
+      <p>
+        <b>Term:</b> {{values.term.program}} {{values.term.months}} billing months from the enrollment date or effective service date
+      </p>
+    </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;"
+   ng-if="values.term.program === 'Other'">
+      <p>
+        <b>Term:</b>
+
+        {{values.term.program}} {{values.term.months}} beginning on the
+
+         “First of the month of {{programDate  | date:'MMMM'}}”
+         ("the effective date") or the first day of the month in which there is
+         initial gas flow and continuing year to year thereafter unless cancelled
+         by either party giving at least sixty (60) days written notice prior to
+         the end of the initial term or any subsequent anniversary date thereto.
+         The effective date shall thus be the first day of the first of the month
+         in which the Transporting LDC effects delivery of gas to Buyer's
+         facility as a transporter.
+
       </p>
     </div>
 
@@ -121,8 +147,8 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
     </div>
     <div layout="row" layout-align="left" style="text-align: justify;
    margin-left: 1em; padding-right: 15px; padding-left: 15px;">
-        <div ng-if="values.term.program === 'Guaranteed Savings'">
-          <b>Contract Price:</b> The contract price for the initial term of  shall be 95% of
+        <div ng-if="values.term.program === 'Guaranteed Saveings 10%'">
+          <b>Contract Price:</b> The contract price for the initial term of  shall be 90% of
           published Black Hills Energy Rate Area 3's PGA rate for natural gas
           service. The price for subsequent terms shall remain the same unless
           seller notifies Buyer thirty (30) days prior to the end of the initial
@@ -131,14 +157,107 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
         <div ng-if="values.term.program === 'Fixed Price'">
           <b>Contract Price:</b> The Base Contract Price shall be defined Fixed at
           {{values.term.fee}} per MMBtu plus any applicable sales taxes and local
-          franchise fees for volumes delivered to city gate.
+          franchise fees for volumes delivered to meter.
+        </div>
+        <div ng-if="values.term.program === 'Guaranteed Saveings  5%'">
+          <b>Contract Price:</b> The contract price for the initial term of  shall be 95% of
+          published Black Hills Energy Rate Area 3's PGA rate for natural gas
+          service. The price for subsequent terms shall remain the same unless
+          seller notifies Buyer thirty (30) days prior to the end of the initial
+          term or any subsequent terms.
         </div>
         <br>
         <br>
     </div>
+
     <div style="width:100%; border-bottom: 1px solid black;">
       <br>
     </div>
+    <div layout="row" layout-align="left" style="text-align: justify;
+   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+        <div>
+          <h5>Special Provisions:</h5>
+            <ol>
+              <li>
+                In addition to the contract price stated above Buyer is responsible
+                for all transportation charges, fees and any and all taxes to
+                effectuate delivery of gas to Buyer. Any tariff changes effecting
+                transportation cost shall be the responsibility of Buyer.
+              </li>
+              <li>
+                The buyer is responsible for their own phone service and system
+                and providing a working phone number that will be utilized by
+                Xcel Energy for their daily natural gas reads. Seller shall install t
+                he physical wire (phone line) from the buyer’s phone system to the
+                meter for Xcel Energy to make daily reads. Seller shall pay for
+                reasonable installation cost and for any repairs needed to said
+                phone line for Xcel Energy’s daily reads for the initial Term of
+                the contract.
+              </li>
+              <li>
+                In reference to General Terms and Conditions paragraph 4 titled
+                Imbalances delete in it's entirety and replace with the following
+                language Seller shall not pass through any imbalance penalties to
+                Buyer. However, in the event there is a material change in the
+                imbalance provisions provided by the utility, Seller at it's
+                sole discretion may request a renegotiation of the Agreement.
+              </li>
+            </ol>
+        <br>
+    </div>
+</div>
+    <div style="width:100%; border-bottom: 1px solid black;">
+      <br>
+    </div>
+    <div layout="row" style="padding: 5px;
+            margin-left: 1em;
+            margin-right: 1em;
+            margin-bottom: .1em">
+
+      <div flex="50">
+        <div class="">
+          <p><b>Seller:</b> Woodriver Energy LLC</p>
+          <img src="https://s3-us-west-1.amazonaws.com/woodriver-site/assets/joSig.jpg" alt="" style="height: 100px; width: 250px;" ng-if="values.signature.signature">
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Date:</b> {{values.signature.date | date}}
+          </div>
+        </div>
+      </div>
+      <br>
+      <div flex="50">
+        <div class="">
+          <p><b>buyer:</b> {{values.customer.name}}</p>
+          <div layout="row" layout-align="center center">
+            <div style="width:95%; border-bottom: 1px solid black; padding: 5px;">
+              <div ng-if="values.signature.signature">
+                <u style="text-decoration: underline;">{{values.signature.signature}} digitaly signed document at IP Address: {{values.signature.ipAddress}} on</u> date:
+                 <u style="text-decoration: underline;">{{values.signature.date}}</u>
+              </div>
+            </div>
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>by:</b> {{values.contact.name}}
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
+            <b>Title:</b>
+          </div>
+          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
+            <b>Date:</b> {{values.signature.date | date}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><br>
+    <div layout="row" layout-align="left" style="text-align: justify;
+  margin-left: 1em; padding-right: 15px; padding-left: 15px;">
+      <p><b>This Sales Agreement is considered proprietary and confidential.</b></p>
+    </div>
+    <div style="width:100%; border-bottom: 1px solid black;">
+      <br>
+    </div>
+    <br><br><br>
+    <br><br><br>
+
     <div layout="row" layout-align="left" style="text-align: justify;
   margin-left: 1em; padding-right: 15px; padding-left: 15px;">
       <b>General Terms and Conditions:</b>
@@ -212,48 +331,6 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
       </ol>
     </div>
 
-    <div style="width:100%; border-bottom: 1px solid black;">
-      <br>
-    </div>
-    <div layout="row" style="padding: 5px;
-            margin-left: 1em;
-            margin-right: 1em;
-            margin-bottom: .1em">
-
-      <div flex="50">
-        <div class="">
-          <p><b>Seller:</b> Woodriver Energy LLC</p>
-          <img src="https://s3-us-west-1.amazonaws.com/woodriver-site/assets/joSig.jpg" alt="" style="height: 100px; width: 250px;" ng-if="values.signature.signature">
-          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
-            <b>Date:</b> {{values.signature.date | date}}
-          </div>
-        </div>
-      </div>
-
-      <br>
-      <div flex="50">
-        <div class="">
-          <p><b>buyer:</b> {{values.customer.name}}</p>
-          <div layout="row" layout-align="center center">
-            <div style="width:95%; border-bottom: 1px solid black; padding: 5px;">
-              <div ng-if="values.signature.signature">
-                <u style="text-decoration: underline;">{{values.signature.signature}} digitaly signed document at IP Address: {{values.signature.ipAddress}} on</u> date:
-                 <u style="text-decoration: underline;">{{values.signature.date}}</u>
-              </div>
-            </div>
-          </div>
-          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
-            <b>by:</b> {{values.contact.name}}
-          </div>
-          <div style="width:90%; border-bottom: 1px solid black; padding: 5px;">
-            <b>Title:</b>
-          </div>
-          <div style="width:90%; border-bottom: 1px solid black;padding: 5px;">
-            <b>Date:</b> {{values.signature.date | date}}
-          </div>
-        </div>
-      </div>
-    </div>
     <br><br><br>
     <div layout="row" layout-align="left" style="text-align: justify;
  margin-left: 1em; padding-right: 15px; padding-left: 15px;">
@@ -273,6 +350,59 @@ font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
       .controller('primary', function($scope, $window) {
         $scope.today = new Date();
         $scope.values = document.values;
+
+        $scope.values = {
+          "customer": {
+            "name": "Something cool INC"
+          },
+          "contact": {
+            "name": "Alex James",
+            "email": "apjames93@gmail.com",
+            "workPhone": "3037209905"
+          },
+          "serviceAccountMeter": [{
+              service_address: "260 lol at you ln somewhere NA 85236",
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+            {
+              service_address: "260 lol at you ln somewhere NA 85236",
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+            {
+              service_address: "260 lol at you ln somewhere NA 85236",
+              account_number: 90909090,
+              meter_number: 3030303,
+            },
+          ],
+          term : {
+            program :  'Fixed Price',
+            year : '3 Year Term',
+            price : '$4.79 Per dekatherm',
+            fee : 4.79,
+            months : 36,
+          },
+          "addresses": {
+            "address1": "3030 Deltron ave",
+            "address2": "",
+            "city": "Denver",
+            "state": "CO",
+            "zip": 83030
+          },
+          "signature": {
+            "date": "2017-03-23T05:00:00.000Z",
+            "signature": "Marvin F Fritz",
+            "personAbove": "I certify I am the person above",
+            "agreeToSignElectronically": "I understand that I am using electronic means to sign this agreement",
+            "ipAddress": "97.121.82.81"
+          }
+        }
+
+
+        $scope.today.setDate($scope.today.getDate() + 60);
+        var mm = $scope.today.getMonth() ;
+        $scope.programDate=  new Date(2014, mm);
 
 
 
