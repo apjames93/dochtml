@@ -1,0 +1,204 @@
+<div layout="row" ng-init="getOptions()">
+  <div flex>
+    <md-button class="md-raised md-primary"
+    ng-click="deal = {}; clear = true;">
+      Clear Deal
+    </md-button>
+    <md-button class="md-raised md-primary"ng-click="editDeal = !editDeal;"
+    ng-show="deal.id">
+      <span ng-show="!editDeal">Edit Deal</span>
+      <span ng-show="editDeal">Cancel Edit</span>
+    </md-button>
+    <md-button class="md-raised md-primary" ng-click="editDeal = !editDeal;"
+    ng-show="!deal.id">
+      <span ng-show="!editDeal">Create Deal</span>
+      <span ng-show="editDeal">Cancel Create</span>
+    </md-button>
+  </div>
+</div>
+
+  <form class="md-padding" layout="row" layout-wrapname="dealForm" >
+    <div flex-xs flex-gt-xs="50" layout="column">
+      <div layout="row">
+
+        <md-button class="md-raised md-primary"
+        ng-click="dealForm.$valid && updateDeal(); editDeal = !editDeal; contactUpdate = true; serviceIdUpdate = true; "
+        ng-show="editDeal && deal.id">Update</md-button>
+
+        <md-button class="md-raised md-primary"
+        ng-click="dealForm.$valid && createDeal(deal); editDeal = !editDeal; clear = false; ; contactUpdate = true; serviceIdUpdate = true;"
+        ng-show="editDeal && !deal.id">Create</md-button>
+
+      </div>
+      <!-- <md-card>
+        <md-card-title-text style="padding: .5em;">
+        <span class="md-headline">Group 1</span>
+        </md-card-title-text>
+          <md-card-content layout="row" layout-align="center center">
+            <div flex="50">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Deal Id</label>
+                <input ng-model="deal.id"
+                ng-value="deal.id" ng-disabled="true">
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>group_fee</label>
+                <input ng-model="deal.group_fee"
+                ng-value="deal.group_fee" ng-disabled="!editDeal">
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Evergreen</label>
+                <input ng-model="deal.evergreen"
+                ng-value="deal.evergreen" ng-disabled="!editDeal">
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>pmt_terms</label>
+                <input ng-model="deal.pmt_terms"
+                ng-value="deal.pmt_terms" ng-disabled="!editDeal">
+              </md-input-container>
+
+            </div>
+            <div flex="50" >
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>trade_date</label>
+                <md-datepicker ng-model="deal.trade_date" ng-disabled="!editDeal"
+                md-placeholder="deal.trade_date"></md-datepicker>
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Updated_at</label>
+                <md-datepicker ng-model="deal.updated_at" ng-disabled="true"
+                md-placeholder="deal.updated_at"></md-datepicker>
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Created_at</label>
+                <md-datepicker ng-model="deal.created_at" ng-disabled="true"
+                md-placeholder="deal.created_at"></md-datepicker>
+              </md-input-container>
+            </div>
+          </<md-card-content>
+        </md-card> -->
+        <!-- <md-card>
+          <md-card-title-text style="padding: .5em;">
+            <span class="md-headline">Group 2</span>
+          </md-card-title-text>
+          <md-card-content layout="row" layout-align="center center">
+
+            <div flex="50">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>orig_id</label>
+                <input ng-model="deal.orig_id"
+                ng-value="deal.orig_id" ng-disabled="!editDeal">
+              </md-input-container>
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>counterparty_id</label>
+                <input ng-model="deal.counterparty_id"
+                ng-value="deal.counterparty_id" ng-disabled="!editDeal">
+              </md-input-container>
+            </div>
+            <div flex="50">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>commission_id</label>
+                <input ng-model="deal.commission_id"
+                ng-value="deal.commission_id" ng-disabled="!editDeal">
+              </md-input-container>
+            </div>
+          </md-card-content>
+        </md-card> -->
+      </div>
+      <div flex-xs flex-gt-xs="50" layout="column">
+        <!-- <md-card>
+          <md-card-title-text style="padding: .5em;">
+            <span class="md-headline">Group 3</span>
+          </md-card-title-text>
+          <md-card-content layout="row" layout-align="center center">
+              <div flex="50">
+                <md-input-container class="md-block" flex-gt-xs>
+                  <label>market</label>
+                  <md-select ng-model="deal.market" ng-disabled="!editDeal">
+                    <md-option ng-value="bool.bool" ng-repeat="bool in trueFalse">
+                      {{ bool.name }}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-xs>
+                  <label>deleted</label>
+                  <md-select ng-model="deal.deleted" ng-disabled="!editDeal">
+                    <md-option ng-value="bool.bool" ng-repeat="bool in trueFalse">
+                      {{ bool.name }}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+              <div flex="50">
+                <md-input-container class="md-block" flex-gt-xs>
+                  <label>customer</label>
+                  <md-select ng-model="deal.customer_id" ng-disabled="!editDeal" ng-required="true">
+                    <md-option ng-value="customer.id" ng-repeat="customer in customers">{{customer.name}}</md-option>
+                  </md-select>
+                </md-input-container>
+                <md-input-container class="md-block" flex-gt-xs>
+                  <label>price_file_calc</label>
+                  <md-select ng-model="deal.price_file_calc" ng-disabled="!editDeal">
+                    <md-option ng-value="bool.bool" ng-repeat="bool in trueFalse">
+                      {{ bool.name }}
+                    </md-option>
+                  </md-select>
+                </md-input-container>
+              </div>
+          </md-card-content>
+        </md-card> -->
+        <!-- <md-card >
+          <md-card-title-text style="padding: .5em;">
+            <span class="md-headline">Group 4</span>
+          </md-card-title-text>
+          <md-card-content layout="row" layout-align="center center">
+              <md-input-container class="md-block" flex-gt-xs>
+                <label>Notes</label>
+                <textarea ng-model="deal.notes" md-maxlength="250"
+                rows="10" md-select-on-focus ng-disabled="!editDeal"></textarea>
+              </md-input-container>
+          </md-card-content>
+        </md-card> -->
+      </div>
+      <div layout="row" flex="100" style="width:100%;">
+        <crud-contacts contact-id="contactId" edit="!editDeal" clear="clear"
+        update="contactUpdate" call-back="contactUpdates"></crud-contacts>
+      </div>
+      <div layout="row" flex="100" style="width:100%;">
+
+        <div layout="row">
+          <div ng-if="servicesId === billtoId">
+            <md-card >
+              <md-card-title-text style="padding: .5em;">
+                <span class="md-headline">Service address/Bill to address</span>
+              </md-card-title-text>
+                <crud-addresses address-id="servicesId" edit="!editDeal"
+                clear="clear" new-address-id='newAddressId'
+                update="serviceIdUpdate" call-back=""></crud-addresses>
+            </md-card>
+          </div>
+
+           <div ng-if="servicesId != billtoId">
+            <div flex>
+              <md-card >
+                <md-card-title-text style="padding: .5em;">
+                  <span class="md-headline">service address</span>
+                </md-card-title-text>
+                  <crud-addresses address-id="servicesId" edit="!editDeal" clear="clear"
+                  update="serviceIdUpdate" call-back="serviceUpdates"></crud-addresses>
+              </md-card>
+            </div>
+            <div flex>
+              <md-card >
+                <md-card-title-text style="padding: .5em;">
+                  <span class="md-headline">bill to address</span>
+                </md-card-title-text>
+                  <crud-addresses address-id="billtoId" edit="!editDeal" clear="clear"
+                  update="billtoIdUpdate"></crud-addresses>
+              </md-card>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>

@@ -1,0 +1,32 @@
+DocuSign.create!(:template_name => "Xcel Energy Agency Agreement",
+:role_name => "Signer1",
+:template_id => "2782f9da-2f9a-4011-a817-42f41ae13196",
+:tabs => [{"required": "true", "tabLabel": "customerName", "description": "customer Name"},
+    {"required": "true", "tabLabel": "contactName", "description": "Contact Name"},
+    {"required": "true", "tabLabel": "addresses", "description": "addresses"},
+    {"required": "true", "tabLabel": "deliveryPoint1", "description": "Delivery Point One"},
+    {"required": "false", "tabLabel": "deliveryPoint2", "description": "Delivery Point Two"},
+    {"required": "false", "tabLabel": "deliveryPoint3", "description": "Delivery Point Three"},
+    {"required": "false", "tabLabel": "deliveryPoint4", "description": "Delivery Point Four"},
+    {"required": "false", "tabLabel": "utilityBillingName", "description": "utility Billing Name"},
+    {"required": "false", "tabLabel": "title", "description": "title"},
+    {"required": "true", "tabLabel": "staging_id", "description": "staging id"}]
+    :next_template => '54f4dc1e-09d0-4732-a187-2301ebacd775',
+    :documents => '3')
+
+
+    DocuSign.create!(:template_name => "Xcel Energy Usage Release",
+    :role_name => "Signer1",
+    :template_id => "54f4dc1e-09d0-4732-a187-2301ebacd775",
+    :tabs => [{"required": "true", "tabLabel": "contactName", "description": "Contact Name"},
+              {"required": "true", "tabLabel": "addresses", "description": "addresses"},
+              {"required": "true", "tabLabel": "deliveryPoint1", "description": "Delivery Point One"},
+              {"required": "false", "tabLabel": "deliveryPoint2", "description": "Delivery Point Two"},
+              {"required": "false", "tabLabel": "deliveryPoint3", "description": "Delivery Point Three"},
+              {"required": "false", "tabLabel": "deliveryPoint4", "description": "Delivery Point Four"},
+              {"required": "false", "tabLabel": "utilityBillingName", "description": "utility Billing Name"},
+              {"required": "false", "tabLabel": "accountNumber", "description": "Account Number"},
+              {"required": "false", "tabLabel": "serviceAddress", "description": "service Address"},
+              {"required": "false", "tabLabel": "title", "description": "title"},
+              {"required": "true", "tabLabel": "staging_id", "description": "staging id"}],
+        :documents => '3')

@@ -1,0 +1,252 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+
+
+<div ng-if="customer.addresses">
+  <div ng-init="getCustomer(customer)">
+  </div>
+</div>
+<div ng-if="customer.serviceAccountMeter">
+  <div ng-init="getCustomerAccounts(customer)">
+  </div>
+</div>
+<div layout="row">
+  <form name="form" ng-submit="form.$valid && submit(customer)">
+    <div ng-if="formError">
+    <span style="color: red;">
+        {{formError}}
+      </span>
+    </div>
+    <div layout='row'>
+      <md-input-container style="width: 500px;">
+         <label>Pick Program</label>
+        <md-select ng-model="program" ng-required="true">
+        <md-option ng-repeat="program in programs" ng-value="{{program}}" ng-click='getTerms(program.name)'>
+              {{program.name}}
+        </md-option>
+      </md-select>
+      </md-input-container>
+    </div>
+    <div layout='row'>
+      <md-input-container style="width: 500px;">
+         <label>Term/Price</label>
+        <md-select ng-model="customer.term" ng-required="true">
+        <md-option ng-repeat="(index,term) in terms" ng-value="{{term}}"
+        ng-selected="index == 2" ng-if="program.name === 'Guaranteed Savings'">
+          {{term.description}}
+        </md-option>
+        <md-option ng-repeat="(index,term) in terms" ng-value="{{term}}"
+        ng-selected="index == 1" ng-if="program.name === 'Fixed Price'">
+          {{term.description}}
+        </md-option>
+      </md-select>
+      </md-input-container>
+    </div>
+
+    <div data-ng-repeat="account in accounts" style="width: 100%;">
+      <div layout="row" layout-align="end center"  ng-if="accounts.length >= 2">
+        <div layout-align="end center" flex="10">
+          <i class="material-icons" ng-show="$last" ng-click=" $event.preventDefault(); removeAccounts()">clear</i>
+        </div>
+      </div>
+      <div layout="row">
+        <md-input-container flex="25">
+          <label>Account Number</label>
+          <input ng-model="account.account_number" ng-required="true"
+          placeholder="Account Number" md-maxlength="12"  minlength="10" name="account_number">
+          <div ng-messages="form.account_number.$error" role="alert" multiple>
+            <div ng-message="required" class="my-message">You must add an Account Number.</div>
+            <div ng-message="minlength">That's too short!</div>
+            <div ng-message="md-maxlength" class="my-message">
+              account numbers are 10-12 digets
+            </div>
+          </div>
+        </md-input-container>
+          <md-input-container flex>
+            <label>service address</label>
+            <input ng-model="account.service_address" placeholder="Accounts Location" >
+          </md-input-container>
+      </div>
+      <div layout="row">
+        <md-input-container flex>
+        <label>Premise Number</label>
+        <input name="premise_number" ng-model="account.premise_number" placeholder="000456789"
+               required ng-pattern="/^[0-9]{9}$/" md-maxlength="9">
+        <div ng-messages="userForm.premise_number.$error" role="alert" multiple>
+          <div ng-message="required" class="my-message">You must supply a Premise Number.</div>
+          <div ng-message="pattern" class="my-message">
+            only numbers starts with three zeros 000
+          </div>
+          <div ng-message="md-maxlength" class="my-message">
+            at least a length of 9
+          </div>
+        </div>
+      </md-input-container>
+        <md-input-container flex>
+          <label>meter number</label>
+          <input ng-model="account.meter_number" ng-required="false"
+          placeholder="Locations meter number">
+        </md-input-container>
+      </div>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button class="md-primary" ng-if="accounts.length != 4"
+      ng-click="$event.preventDefault(); addNewAccounts()">
+        Add New location
+      </md-button >
+      <md-button class="md-warn md-raised md-hue-2" ng-if="accounts.length >= 2"
+      ng-click="$event.preventDefault(); removeAccounts()">
+        Removelast location
+      </md-button>
+    </div>
+    <div layout="row" layout-align="center center">
+      <md-button class="md-raised md-primary" type="submit" id="submit" value="Submit">Create Document</md-button>
+    </div>
+  </form>
+</div>
+
+
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window) {
+        $scope.formValue = {}
+
+        $scope.terms = [
+          {year : 'Pick a Program'}
+        ]
+
+        $scope.programs = [
+          {name : 'Fixed Price'},
+          {name : 'Guaranteed Savings'}
+        ]
+
+        $scope.accounts = [{
+          service_address: '',
+          account_number: '' ,
+          meter_number: '',
+          premise_number: ''
+        }];
+
+        $scope.getCustomer = function(customer) {
+          $scope.customer = customer
+          $scope.accounts = [{
+            service_address: customer.addresses.address1 + ' ' +
+            customer.addresses.city + ' ' + customer.addresses.state + ' ' +
+            customer.addresses.zip,
+            account_number: '' ,
+            meter_number: '',
+            premise_number: ''
+          }];
+        }
+
+        $scope.getCustomerAccounts = function(customer){
+          $scope.accounts =[]
+          let accounts = customer.serviceAccountMeter
+          for (var i = 0; i < accounts.length; i++) {
+            $scope.accounts.push(accounts[i])
+          }
+        }
+
+        $scope.getTerms = function(program) {
+          $scope.program = program
+
+          if (program === 'Fixed Price') {
+            $scope.terms = [{
+                year : '1 Year Term ',
+                price : ' $0.359 Therm',
+                fee : 4.95,
+                months : 12,
+                description : '1 Year Term - $0.349 Therm'
+              },{
+                year : '3 Year Term',
+                price : '$0.349 Therm',
+                fee : 4.79,
+                months : 36,
+                description : '3 Year Term - $0.349 Therm'
+              }
+            ]
+          }
+          if (program === 'Guaranteed Savings') {
+            $scope.terms = [{
+                year : '1 Year Term',
+                months : 12,
+                description : '1 Year Term - 95% of the Xcel Energy monthly published rate'
+
+              },{
+                year :'2 Year Term',
+                months : 24,
+                description : '2 Year Term - 95% of the Xcel Energy monthly published rate'
+
+              },{
+                year : '3 Year Term',
+                months : 36,
+                description : '3 Year Term - 95% of the Xcel Energy monthly published rate'
+              }
+            ]
+          }
+        }
+
+        $scope.addNewAccounts = function() {
+          $scope.accounts.push({
+            service_address: '',
+            account_number: '',
+            meter_number: ''
+          });
+        };
+
+        $scope.removeAccounts = function() {
+          var lastItem = $scope.accounts.length - 1;
+          $scope.accounts.splice(lastItem);
+        };
+
+        $scope.submit = function(customer) {
+          $scope.formValue.customer = {
+            name: customer.customer.name
+          }
+          $scope.formValue.addresses = customer.addresses
+          $scope.formValue.serviceAccountMeter = $scope.accounts
+          $scope.formValue.contact = customer.contact
+          $scope.formValue.name = customer.id;
+          $scope.formValue.term = customer.term;
+          $scope.formValue.term.program = $scope.program.name
+          $scope.formValue.tag = 'WoodRiver_Energy_Sales_Agreement';
+          DocumentTemplate.generateDocId({
+            query: angular.extend($scope.formValue)
+          }).$promise.then((data) => {
+            $scope.customer.documents = {}
+            $scope.customer.documents.pscoDocument = {
+              id: data.documentId,
+              name : 'WoodRiver Energy Sales Agreement'
+            }
+            $scope.customer.serviceAccountMeter = $scope.accounts;
+            $scope.customer.docuSign['accountNumber'] = $scope.accounts[0].account_number
+            $scope.customer.docuSign['serviceAddress'] = $scope.accounts[0].service_address
+            Staging.upsert({ id: $scope.customer.id, values : $scope.customer })
+            .$promise.then((data) => {
+              $scope.customer.id = data.id
+
+              if ($scope.callBack) {
+                $scope.callBack();
+              }
+            })
+
+          }).catch((err) => {
+            console.log('ERROR', err)
+          })
+        }
+      });
+  </script>
+</body>

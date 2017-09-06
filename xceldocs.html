@@ -1,0 +1,101 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
+<body ng-app="app" ng-controller="primary" style="font-family: 'Arial';
+font-size: 14px; line-height: 1.2; color: #333; font-weight: 500;" ng-cloak>
+
+
+<script type="text/ng-template" id="doc.tmpl.html">
+  <md-dialog aria-label="Electronic Signature Disclosure" style="min-width: 600px;">
+    <md-toolbar>
+      <div class="md-toolbar-tools">
+        <h2>{{template.name}}</h2>
+        <span flex></span>
+      </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding" layout-align="center center">
+      <div  layout-align="center center">
+        <iframe ng-src="{{trustSrc(template.src)}}" height="800" width="800"></iframe>
+      </div>
+    </md-dialog-content>
+  </md-dialog>
+</script>
+
+
+  <div layout="row" layout-xs="column" layout-md="column">
+      <md-card layout-align="space-around center">
+        <md-card-content>
+          <div layout='column'>
+            <div flex layout-align="center start">
+              <h3 style="text-align:center">
+                links to documents
+              </h3>
+            </div>
+              <div layout="row">
+                <div flex="50">
+                  <md-button ng-click="showdoc($event, 'Xcel_Energy_Usage_Release')"
+                   class="md-raised md-primary" style="width: 99%; margin-right: 10px;" >
+                    Xcel Energy Usage Release
+                  </md-button>
+                </div>
+                <div flex="50">
+                  <md-button ng-click="showdoc($event, 'Xcel_Energy_Agency_Agreement')"
+                   class="md-raised md-primary" style="width: 99%; margin-left: 10px;">
+                    Xcel Energy Agency Agreement
+                  </md-button>
+                </div>
+              </div>
+              <div layout="row">
+                <div flex="50">
+                  <md-button ng-click="showdoc($event, 'Xcel_WoodRiver_Energy_5')"
+                   class="md-raised md-primary" style="width: 99%; margin-right: 10px;">
+                    WoodRiver Energy Sales Agreement 5%
+                  </md-button>
+                </div>
+                <div flex="50">
+                  <md-button ng-click="showdoc($event, 'Xcel_WoodRiver_Energy_Guaranteed_Savings')"
+                   class="md-raised md-primary" style="width: 99%; margin-left: 10px;">
+                    WoodRiver Energy Guaranteed Savings
+                  </md-button>
+                </div>
+              </div>
+          </div>
+        </md-card-content>
+      </md-card>
+  </div>
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+  <script type="text/javascript">
+    angular.module('app', ['ngMaterial'])
+      .controller('primary', function($scope, $window, $mdDialog, $sce) {
+        $scope.showdoc = function(ev, template) {
+          const mdDialogCtrl = function ($scope, template) {
+              $scope.trustSrc = function(src) {
+                return $sce.trustAsResourceUrl(src);
+              }
+              $scope.template = {
+                src :'https://s3-us-west-1.amazonaws.com/woodriver-site/assets/' + template +'.pdf',
+                name : template.replace(/_|\-/g, " ")
+              }
+          }
+
+          $mdDialog.show({
+            locals:{template: template},
+            clickOutsideToClose: true,
+            controllerAs: 'ctrl',
+            templateUrl: 'doc.tmpl.html',
+            controller: mdDialogCtrl,
+          });
+
+        }
+
+      });
+  </script>
+</body>

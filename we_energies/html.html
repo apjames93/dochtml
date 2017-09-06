@@ -1,0 +1,33 @@
+<md-tab label="0">
+  <div layout="row" layout-xs="column" layout-md="column">
+    <div flex>
+      <md-card layout-align="center center">
+        <md-card-content>
+          <div flex>
+            <div layout="column" layout-align="center center"
+            style="padding: 20px;">
+              <h1 style="margin: 0px;">
+                General Form
+              </h1>
+              <p style="margin: 0px;">
+                Please complete the form below. The information provided
+                will be used to generate the required documents for
+                enrollment.
+              </p>
+              <p style="margin: 0px;">
+                <b>
+                  All information will be kept confidential
+                </b>
+              </p>
+            </div>
+            <div layout="column" layout-align="center center"
+            style="padding: 20px;">
+            <temp-customer customer="customer" call-back="customerCreated">
+            </temp-customer>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</md-tab>
