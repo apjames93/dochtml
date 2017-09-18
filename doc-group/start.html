@@ -1,0 +1,197 @@
+
+<section class="module parallax" style="background-image: url('/assets/forest_river_saturated.jpg'); min-height:
+80vh; margin-top: 1.5em;" layout-align="center center" >
+    <div layout="row" layout-align="center center">
+        <md-card layout-align="center center" style="
+        background-color:rgba(0, 0, 0 ,0.70); color: white;">
+          <md-card-content layout-align="center center">
+            <div layout="column" layout-align="center center">
+              <h4>
+                Lock in Guaranteed Savings or a Fixed Rate as low as $0.349/therm
+              </h4>
+            </div>
+            <div layout="column">
+              If at any point in time you are stuck on this process or have question please
+              feel free to direct any questions to a knowledgeable representative by
+              calling the WoodRiver Energy office at 1(888) 510-9315 or emailing
+              sales@woodriverenergy.com
+            </div>
+          </md-card-content>
+        </md-card>
+    </div>
+    <div class="container"  style="margin-top: 1.5vh;" ng-show="!starts">
+      <md-card layout-align="center center"
+        style="margin-top:10vh; margin-bottom: 10px;
+        background-color:rgba(0, 0, 0 ,0.70); color: white;" >
+        <md-card-content>
+          <h1 style="text-align: center; font-size: 4em;">
+            <b>Transfer your Natural Gas Services to WoodRiver Energy Today!</b>
+          </h1>
+           <md-button class="md-raised md-primary"
+            style="width: 100%; background-color:rgb(43, 105, 33);"
+           ng-click="start()">
+            Click Here To Start
+          </md-button>
+        </md-card-content>
+     </md-card>
+     <div layout="row">
+      <div class="overlay-panel-energy-options" layout="column" flex
+      style="background-color:rgba(88,31,24, 0.70)" layout-align="center center">
+        <h1 style="font-weight: bold; font-size: 2.5em; margin-top: 100px;">
+          NO CHANGE
+        </h1>
+        <h4>
+          You will experience absolutely no change in the delivery of your
+          natural gas. The same gas flows through the same pipelines to the
+          same meter with no necessary installations and no interruption of service.
+        </h4>
+        <span flex></span>
+        <div style="height: 12vh;"></div>
+      </div>
+      <div class="overlay-panel-energy-options" layout-align="center center"
+      style="background-color:rgba(241,136,5, 0.70)" layout="column" flex>
+        <h1 style="font-weight: bold; font-size: 2.5em; margin-top: 100px;">
+          NO RISK
+        </h1>
+        <h4>
+          WoodRiver has been vetted to sell gas by Xcel Energy. The contracts we
+          offer are transparent by nature and provide all appropriate legal
+          language to protect you the customer
+        </h4>
+        <span flex></span>
+        <div style="height: 12vh;"></div>
+      </div>
+
+      <div class="overlay-panel-energy-options" layout-align="center center" flex
+      style="background-color:rgba(34,42,104, 0.70)"  layout="column">
+        <h1 style="font-weight: bold; font-size: 2.5em; margin-top: 100px;">
+          NO STRESS
+        </h1>
+        <h4>
+          Our offerings are simple - Fixed Rate and Guaranteed Savings
+          Contracts. We know you have better things to do with your time
+          than understand complex natural gas agreements. We offer easy
+          solutions that allow you the confidence that the product you
+          select is the product you get
+        </h4>
+        <span flex></span>
+        <div style="height: 12vh;"></div>
+      </div>
+     </div>
+    </div>
+
+    <div ng-show="starts">
+      <steps step-array="stepArray" step="selectedIndex"></steps>
+      <div ng-if="selectedIndex === 2">
+        <save-stage customer="customer"></save-stage>
+      </div>
+
+      <md-tabs md-selected="selectedIndex" class="no-tab-panel" md-dynamic-height
+        layout-align="center center" style="margin-top: 2vh;" >
+        <md-tab label="0">
+          <div layout="row" layout-xs="column" layout-md="column">
+            <div flex>
+              <md-card layout-align="center center">
+                <md-card-content>
+                  <div flex>
+                    <div layout="column" layout-align="center center"
+                    style="padding: 20px;">
+                      <h1 style="margin: 0px;">
+                        General Form
+                      </h1>
+                      <p style="margin: 0px;" ng-if="!stageCustomer">
+                        Please complete the form below. The information provided
+                        will be used to generate the required documents for
+                        enrollment.
+                      </p>
+                      <p style="margin: 0px;" ng-if="stageCustomer">
+                        <b>
+                          Please make sure all of the values are correct before
+                          continuing
+                        </b>
+                      </p>
+                      <p style="margin: 0px;">
+                        <b>
+                          All information will be kept confidential
+                        </b>
+                      </p>
+                    </div>
+                  </div>
+                  <temp-customer customer="customer" call-back="customerCreated">
+                  </temp-customer>
+                </md-card-content>
+              </md-card>
+            </div>
+          </div>
+        </md-tab>
+        <md-tab label="1">
+          <div layout="row" layout-xs="column" layout-md="column">
+            <div flex>
+              <md-card style="height: auto;">
+                <md-card-content>                      
+                  <div layout="row" layout-align="center center">
+                    <div layout="column" layout-align="center center">
+                      <div flex>
+                        <div layout='row'>
+                          <md-input-container style="width: 500px;">
+                            <label>Pick Program</label>
+                            <md-select ng-model="program" ng-required="true" >
+                              <md-option ng-repeat="program in programs" ng-value="{{program}}"
+                              ng-click=''>
+                                {{program.name}}
+                              </md-option>
+                            </md-select>
+                          </md-input-container>
+                        </div>
+                        <div layout='row'>
+                          <md-input-container style="width: 500px;">
+                            <label>Term/Price</label>
+                            <md-select ng-model="term" ng-required="true" ng-model-options="{trackBy: '$value.id'}">
+                              <md-option ng-repeat="term in terms" ng-value="{{term}}" ng-if="term.name === program.name" >
+                                {{term.description}}
+                              </md-option>
+                            </md-select>
+                          </md-input-container>
+                        </div>
+                        <div layout="row" layout-align="center center">
+                          <div>
+                            <div class="form">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </md-card-content>
+              </md-card>
+            </div>
+          </div>
+        </md-tab>
+        <md-tab label="2">
+          <div layout="row" layout-xs="column" layout-md="column">
+            <div flex>
+              <md-card style="height: auto;">
+                <div flex>
+                  <div layout="column" layout-align="center center"
+                  style="padding: 20px;">
+                    <h1 style="margin: 0px;">
+                      Loading
+                    </h1>
+                    <p style="margin: 0px;">
+                      please wait to be taken to your docuSign documnt, if this
+                      is taking a long time please restart and try again or call
+                      woodriver energy at 1(888) 510-9315 or emailing
+                      sales@woodriverenergy.com
+                    </p>
+                  </div>
+                </div>
+                  <docu-sign template-id='templateId' submit='submit'
+                    customer='customer' return-url='returnUrl'></docu-sign>
+              </md-card>
+            </div>
+          </div>
+        </md-tab>
+      </md-tabs>
+    </div>
+  </div>
+</section>
